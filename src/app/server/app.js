@@ -37,7 +37,7 @@ app.use(express.json());
 app.use(cors());
 app.use(favicon(path.join(__dirname,'public', 'img', 'favicon.ico')));
 app.use(express.static(__dirname + '/public'));
-app.use(express.static(path.join('..','..','..','dist')));
+app.use(express.static(path.join('..','..','..','dist','portfolio')));
 /* Configuring End */
 
 
@@ -48,7 +48,7 @@ app.use('/api/portfolio', portfolio);
 /* Path Location Strategy */
 if(process.env.NODE_ENV == 'production' && app.get('env') == 'production'){
     app.get('/*', function (req, res) {
-        res.sendFile(path.join('..','..','..','dist','index.html'));
+        res.sendFile(path.join('..','..','..','dist','portfolio','index.html'));
     });
 }
 /* */
