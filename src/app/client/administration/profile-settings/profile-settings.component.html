@@ -1,0 +1,28 @@
+<div class="row">
+  <h5>Profile Image</h5>
+  <input type="file" class="form-control-file">
+</div>
+<br>
+<div class="row">
+  <h5>Summary</h5>
+  <textarea class="form-control" rows="3"></textarea>
+</div>
+<br>
+<div class="row">
+  <h5>Date of birth</h5>
+  <input type="text" class="form-control">
+</div>
+<br>
+<div class="row">
+  <h5>Nationality</h5>
+  <select>
+    <option *ngFor="let country of countriesList" [value]="country?.id">{{country?.name}}</option>
+  </select>
+</div>
+<br>
+<div class="row">      
+  <h5>Current Location</h5>
+  <select>
+    <option *ngFor="let country of countriesList" [value]="country?.id">{{country?.name}}</option>
+  </select>
+</div>

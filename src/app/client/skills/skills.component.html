@@ -1,0 +1,45 @@
+<h2>Skills</h2>
+<p>
+    <b>
+        <div>Technical Skills</div>
+    </b>
+</p>
+<ul>
+	<li *ngFor="let item of skillsList?.technicalSkills">
+		{{item?.name}}<br>
+		Rating: {{item?.rating}}<br>
+	    <br>        
+	</li>
+</ul>
+
+<br>
+<br>
+
+<p>
+    <b>
+        <div>Non Technical Skills</div>
+    </b>
+</p>
+<ul>
+	<li *ngFor="let item of skillsList?.nonTechnicalSkills">
+		{{item?.name}}<br>
+		Rating: {{item?.rating}}<br>
+	    <br>        
+	</li>
+</ul>
+
+<br>
+<br>
+
+<p>
+    <b>
+        <div>Language Skills</div>
+    </b>
+</p>
+<ul>
+	<li *ngFor="let item of skillsList?.languageSkills">
+		{{item?.name}}<br>
+		Rating: {{item?.rating}}<br>
+	    <br>        
+	</li>
+</ul>

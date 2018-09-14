@@ -1,0 +1,48 @@
+<div class="wrapper">
+    <!-- Sidebar Holder-->
+    <nav id="sidebar">
+    <!-- <nav class="active" id="sidebar"> -->
+        <div class="sidebar-header">
+            <h3>Hazem Gharib</h3>
+        </div>
+        <ul class="list-unstyled components">
+            <p>Full Stack Developer</p>
+            <li routerLinkActive="active"><a routerLink="/profile" (click)="isLoggedIn()" >Profile</a></li>
+            <li routerLinkActive="active"><a routerLink="/contact" (click)="isLoggedIn()" >Contact</a></li>
+            <li routerLinkActive="active"><a routerLink="/experience" (click)="isLoggedIn()" >Previous Experience</a></li>
+            <li routerLinkActive="active"><a routerLink="/skills" (click)="isLoggedIn()" >Skills</a></li>
+            <li routerLinkActive="active" *ngIf="isAuthenticated">
+                <a routerLink="/administration" (click)="isLoggedIn()" >Administration</a>
+            </li>
+            <li></li>
+        </ul>
+        
+        <div class="list-unstyled CTAs">
+            <div class="login" *ngIf="!isAuthenticated" (click)="login()"> Login </div>
+            <div class="logout" *ngIf="isAuthenticated" (click)="logout()"> Logout </div>
+        </div>
+
+        </nav>
+    <!-- Page Content Holder-->
+    <div class="container-fluid" id="content">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header"><button class="active navbar-btn" id="sidebarCollapse" type="button"><span></span><span></span><span></span></button></div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a routerLink="/profile" routerLinkActive="active" (click)="isLoggedIn()" >Profile</a></li>
+                        <li><a routerLink="/contact" routerLinkActive="active" (click)="isLoggedIn()" >Contact</a></li>
+                        <li><a routerLink="/experience" routerLinkActive="active" (click)="isLoggedIn()" >Previous Experience</a></li>
+                        <li><a routerLink="/skills" routerLinkActive="active" (click)="isLoggedIn()" >Skills</a></li>
+                        <li *ngIf="isAuthenticated">
+                            <a routerLink="/administration" routerLinkActive="active" (click)="isLoggedIn()" >Administration</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

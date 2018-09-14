@@ -1,0 +1,35 @@
+<h2>Previous Experience</h2>
+<p>
+    <b>
+        <div>Work Experience</div>
+    </b>
+</p>
+<ul>
+	<li *ngFor="let item of experience?.workExperience">
+		Employer: {{item?.employerName}}<br>
+		Role: {{item?.role}}<br>
+		Responsibilities: {{item?.responsibilities}}<br>
+		Current: {{item?.isCurrent}}<br>
+		Start Date: {{item?.startDate | date: 'dd/MM/yyyy'}}<br>
+        End Date: {{item?.endDate | date: 'dd/MM/yyyy'}}<br>
+	    <br>        
+	</li>
+</ul>
+
+<br>
+<br>
+
+<p>
+    <b>
+        <div>Training Experience</div>
+    </b>
+</p>
+<ul>
+    <li *ngFor="let item of experience?.trainingExperience">
+        Employer: {{item?.organizationName}}<br>
+        Role: {{item?.field}}<br>
+        Start Date: {{item?.startDate | date: 'dd/MM/yyyy'}}<br>
+        End Date: {{item?.endDate | date: 'dd/MM/yyyy'}}<br>
+        <br>        
+    </li>
+</ul>

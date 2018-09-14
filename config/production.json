@@ -1,0 +1,7 @@
+{
+    "name": "Genres API - Production",
+    "mail": {
+        "host": "prod-mail-server"
+    },
+    "port": 8080
+}
