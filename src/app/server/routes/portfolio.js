@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 // Third party packages
-const Joi = require('Joi');
+const Joi = require('joi');
 const config = require('config');
 
 
