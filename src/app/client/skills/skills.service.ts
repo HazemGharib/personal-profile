@@ -11,6 +11,6 @@ export class SkillsService {
   ) { }
 
   getSkills() {
-    return this.http.get(`${environment.apiBaseUri}/api/portfolio/skills`).pipe(map((res: Response) => res.json()));
+    return this.http.get(`${environment.baseUri}/api/portfolio/skills`).pipe(map((res: Response) => res.json()));
   }
 }

@@ -11,6 +11,6 @@ export class ContactService {
   ) { }
 
   getContact() {
-    return this.http.get(`${environment.apiBaseUri}/api/portfolio/contact`).pipe(map((res: Response) => res.json()));
+    return this.http.get(`${environment.baseUri}/api/portfolio/contact`).pipe(map((res: Response) => res.json()));
   }
 }

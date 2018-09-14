@@ -11,6 +11,6 @@ export class ProfileService {
   ) { }
 
   getProfile() {
-    return this.http.get(`${environment.apiBaseUri}/api/portfolio/profile`).pipe(map((res: Response) => res.json()));
+    return this.http.get(`${environment.baseUri}/api/portfolio/profile`).pipe(map((res: Response) => res.json()));
   }
 }

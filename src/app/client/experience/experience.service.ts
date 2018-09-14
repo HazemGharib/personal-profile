@@ -11,6 +11,6 @@ export class ExperienceService {
   ) { }
 
   getExperience() {
-    return this.http.get(`${environment.apiBaseUri}/api/portfolio/experience`).pipe(map((res: Response) => res.json()));
+    return this.http.get(`${environment.baseUri}/api/portfolio/experience`).pipe(map((res: Response) => res.json()));
   }
 }

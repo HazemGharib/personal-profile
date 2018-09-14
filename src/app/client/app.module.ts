@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { environment } from '../../environments/environment';
 
 import { AppComponent } from './app.component';
 import { AdministrationComponent } from './administration/administration.component';
@@ -10,6 +11,11 @@ import { ExperienceComponent } from './experience/experience.component';
 import { ContactComponent } from './contact/contact.component';
 import { SkillsComponent } from './skills/skills.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+import { ProfileSettingsComponent } from './administration/profile-settings/profile-settings.component';
+import { ContactSettingsComponent } from './administration/contact-settings/contact-settings.component';
+import { ExperienceSettingsComponent } from './administration/experience-settings/experience-settings.component';
+import { SkillsSettingsComponent } from './administration/skills-settings/skills-settings.component';
 
 import { SkillsService } from './skills/skills.service';
 import { ProfileService } from './profile/profile.service';
@@ -22,15 +28,11 @@ import {
   OktaAuthModule,
   OktaCallbackComponent,
 } from '@okta/okta-angular';
-import { ProfileSettingsComponent } from './administration/profile-settings/profile-settings.component';
-import { ContactSettingsComponent } from './administration/contact-settings/contact-settings.component';
-import { ExperienceSettingsComponent } from './administration/experience-settings/experience-settings.component';
-import { SkillsSettingsComponent } from './administration/skills-settings/skills-settings.component';
 
 const oktaConfig = {
-  issuer: 'https://dev-317930.oktapreview.com/oauth2/default',
-  redirectUri: 'http://localhost:4200/implicit/callback',
-  clientId: '0oag7y0s0h7x7ao8t0h7'
+  issuer: `https://dev-317930.oktapreview.com/oauth2/default`,
+  redirectUri: `${environment.baseUri}/implicit/callback`,
+  clientId: `0oag7y0s0h7x7ao8t0h7`
 };
 
 const appRoutes: Routes = [
