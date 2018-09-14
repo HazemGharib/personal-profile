@@ -9,7 +9,7 @@ const app = express();
 const helmet = require('helmet');
 const cJson = require('circular-json');
 const favicon = require('serve-favicon');
-const history = require('connect-history-api-fallback');
+//const history = require('connect-history-api-fallback');
 const cors = require('cors');
 const config = require('config');
 
@@ -31,7 +31,7 @@ if(process.env.NODE_ENV == 'production' && app.get('env') == 'production')
         app.use(helmet());
 
         // Angular 2+ integration for fallback issue
-        app.use(history({verbose: true}));
+        // app.use(history({verbose: true}));
     }
 app.use(express.json());
 app.use(cors());
