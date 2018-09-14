@@ -43,7 +43,7 @@ app.use(express.static(path.join(__dirname,'..','..','..','dist','portfolio')));
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', config.get('baseUri'));
+    res.setHeader('Access-Control-Allow-Origin', process.env.CORS);
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
