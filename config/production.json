@@ -3,5 +3,6 @@
     "mail": {
         "host": "prod-mail-server"
     },
-    "port": 8080
+    "port": 8080,
+    "baseUri": "https://hazem-gharib.herokuapp.com"
 }

@@ -26,13 +26,13 @@ const portfolio = require('./routes/portfolio');
 
 /* Configuring Helmet, History Api Fallback, Request Body JSON, CORS, Favicon & Static folders */
 if(process.env.NODE_ENV == 'production' && app.get('env') == 'production')
-    {
-        // Helmet Configuration
-        app.use(helmet());
+{
+    // Helmet Configuration
+    app.use(helmet());
 
-        // Angular 2+ integration for fallback issue
-        // app.use(history({verbose: true}));
-    }
+    // Angular 2+ integration for fallback issue
+    // app.use(history({verbose: true}));
+}
 app.use(express.json());
 app.use(cors());
 app.use(favicon(path.join(__dirname,'public', 'img', 'favicon.ico')));
@@ -40,6 +40,24 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.static(path.join(__dirname,'..','..','..','dist','portfolio')));
 /* Configuring End */
 
+app.use(function (req, res, next) {
+
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', config.get('baseUri'));
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // Pass to next layer of middleware
+    next();
+});
 
 /* Application Routes */
 app.use('/api/portfolio', portfolio);
