@@ -37,7 +37,7 @@ app.use(express.json());
 app.use(cors());
 app.use(favicon(path.join(__dirname,'public', 'img', 'favicon.ico')));
 app.use(express.static(__dirname + '/public'));
-app.use(express.static(path.join(__dirname,'dist','portfolio')));
+app.use(express.static(path.join(__dirname,'..','..','..','dist','portfolio')));
 /* Configuring End */
 
 
