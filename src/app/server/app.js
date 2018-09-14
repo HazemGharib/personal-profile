@@ -48,7 +48,7 @@ app.use('/api/portfolio', portfolio);
 /* Path Location Strategy */
 if(process.env.NODE_ENV == 'production' && app.get('env') == 'production'){
     app.get('/*', function (req, res) {
-        res.sendFile(path.join(__dirname,'dist','portfolio','index.html'));
+        res.sendFile(path.join(__dirname,'..','..','..','dist','portfolio','index.html'));
     });
 }
 /* */
