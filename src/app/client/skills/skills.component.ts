@@ -8,13 +8,15 @@ import { SkillsService } from './skills.service';
 })
 export class SkillsComponent implements OnInit {
 
+  dataReady: boolean;
   skillsList: any;
 
   constructor (private skillsService: SkillsService) {}
 
   ngOnInit() {
     this.skillsService.getSkills().subscribe(skills => {
-      this.skillsList = skills;
+        this.skillsList = skills;
+        this.dataReady = true;
     });
   }
 

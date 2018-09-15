@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { MatProgressSpinnerModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../../environments/environment';
 
 import { AppComponent } from './app.component';
@@ -31,7 +33,7 @@ import {
 
 const oktaConfig = {
   issuer: `https://dev-317930.oktapreview.com/oauth2/default`,
-  redirectUri: `${environment.baseUri}/implicit/callback`,
+  redirectUri: `${environment.oktaRedirectUri}`,
   clientId: `0oag7y0s0h7x7ao8t0h7`
 };
 
@@ -98,6 +100,7 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     OktaAuthModule.initAuth(oktaConfig),
+    MatProgressSpinnerModule,
   ],
   providers: [
     SkillsService,

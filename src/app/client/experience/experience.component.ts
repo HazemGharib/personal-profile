@@ -8,6 +8,7 @@ import { ExperienceService } from './experience.service';
 })
 export class ExperienceComponent implements OnInit {
 
+  dataReady: boolean;
   experience: any;
 
   constructor(private experienceService: ExperienceService) { }
@@ -15,6 +16,7 @@ export class ExperienceComponent implements OnInit {
   ngOnInit() {
     this.experienceService.getExperience().subscribe(experience => {
       this.experience = experience;
+      this.dataReady = true;
     });
   }
 

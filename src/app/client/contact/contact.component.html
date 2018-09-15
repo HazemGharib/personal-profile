@@ -1,20 +1,23 @@
 <h2>Contact</h2>
-<p>
-    {{contact?.email}}
-    <br>
-    {{contact?.mobile}}
-    <br>
-    {{contact?.currentAddress?.Line1}}
-    <br>
-    {{contact?.currentAddress?.Line2}}
-    <br>
-    {{contact?.currentAddress?.state}}
-    <br>
-    {{contact?.currentAddress?.country}}
-    <br>
-    {{contact?.linkedinAccount}}
-    <br>
-    {{contact?.githubAccount}}
-    <br>
-    {{contact?.facebookAccount}}
-</p>
+<mat-spinner *ngIf="!dataReady"></mat-spinner>
+<div *ngIf="dataReady">
+    <p>
+            {{contact?.email}}
+            <br>
+            {{contact?.mobile}}
+            <br>
+            {{contact?.currentAddress?.Line1}}
+            <br>
+            {{contact?.currentAddress?.Line2}}
+            <br>
+            {{contact?.currentAddress?.state}}
+            <br>
+            {{contact?.currentAddress?.country}}
+            <br>
+            {{contact?.linkedinAccount}}
+            <br>
+            {{contact?.githubAccount}}
+            <br>
+            {{contact?.facebookAccount}}
+        </p>
+</div>

@@ -8,6 +8,7 @@ import { ProfileService } from './profile.service';
 })
 export class ProfileComponent implements OnInit {
 
+  dataReady: boolean;
   profile: any;
 
   constructor(private profileService: ProfileService) { }
@@ -15,6 +16,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.profileService.getProfile().subscribe(profile => {
       this.profile = profile;
+      this.dataReady = true;
     });
   }
 

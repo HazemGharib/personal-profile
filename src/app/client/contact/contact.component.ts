@@ -10,6 +10,7 @@ import { Contact } from './contact';
 })
 export class ContactComponent implements OnInit {
 
+  dataReady: boolean;
   contact: Contact;
 
   constructor(private contactService: ContactService) { }
@@ -17,6 +18,7 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     this.contactService.getContact().subscribe(contact => {
       this.contact = contact;
+      this.dataReady = true;
     });
   }
 

@@ -3,6 +3,7 @@
     STYLE
 */
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 html, body {
     max-width: 100%;
