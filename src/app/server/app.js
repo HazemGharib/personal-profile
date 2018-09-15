@@ -20,7 +20,7 @@ const requestLogger = require('./utils/request-logger');
 // Routers
 const portfolio = require('./routes/portfolio');
 
-// Setting view engine
+// Setting view engine [For using different engines than Angular X]
 // app.set('view engine','pug');
 // app.set('views', './views');
 

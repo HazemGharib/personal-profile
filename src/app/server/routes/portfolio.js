@@ -162,13 +162,11 @@ router.get('/skills', (req, res, next) => {
 
 router.get('/config', (req, res, next) => {
     const configJSON = {
-        "ApplicationName" : config.has('name') ? config.get('name') : undefined,
-        "Mail" : {
-            "Host" : config.has('mail.host') ? config.get('mail.host') : undefined,
-            "Password" : config.has('mail.password') ? config.get('mail.password') : undefined
-        },
+        "port" : config.has('port') ? config.get('port') : undefined,
+        "baseUri" : config.has('baseUri') ? config.get('baseUri') : undefined,
     };
 
+    console.log(`Server Config:`);
     console.log(configJSON);
     res.status(200).send(configJSON);
     next();
