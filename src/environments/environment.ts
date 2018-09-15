@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUri: 'http://localhost:8080'
+  baseUri: 'http://localhost:8080',
+  oktaRedirectUri: 'http://localhost:4200/implicit/callback',
 };
 
 /*
