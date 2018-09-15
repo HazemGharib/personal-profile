@@ -19,7 +19,9 @@
   "dependencies": {
     "@angular/cli": "~6.1.5",
     "@angular/compiler-cli": "^6.1.0",
-    "@angular/animations": "^6.1.0",
+    "@angular/animations": "^6.1.7",
+    "@angular/cdk": "^6.4.7",
+    "@angular/material": "^6.4.7",
     "@angular/common": "^6.1.0",
     "@angular/compiler": "^6.1.0",
     "@angular/core": "^6.1.0",
@@ -41,8 +43,8 @@
     "pug": "^2.0.3",
     "rxjs": "^6.0.0",
     "serve-favicon": "^2.5.0",
-    "zone.js": "~0.8.26",
-    "typescript": "~2.7.2"
+    "typescript": "~2.7.2",
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.7.0",
