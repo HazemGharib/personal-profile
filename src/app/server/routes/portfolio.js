@@ -6,9 +6,27 @@ const router = express.Router();
 // Third party packages
 const Joi = require('joi');
 const config = require('config');
+const mongoose = require('mongoose');
 
+// Initialize Mongoose
+mongoose.connect(
+    "mongodb://<dbuser>:<dbpassword>@ds023373.mlab.com:23373/my-portfolio", 
+    {
+        auth: {
+            user:'admin',
+            password:'zuk@-@dm1n'
+        },
+        useNewUrlParser:true
+    }, 
+    function(err, client) {
+        if (err) {
+            console.log(err);
+        }
+        console.log('DB connection session started');
+    }
+);
 
-/* Models */
+/* Validation Schema */
 
 // Contact Models
 const address = {
@@ -45,6 +63,62 @@ const experience = {
     workExperience: Joi.object(workExperienceEntry),
     trainingExperience: Joi.object(trainingExperienceEntry),
 };
+
+/* Validation Schema End */
+
+
+/* Schema Configuration */
+
+var ContactSchema = new mongoose.Schema({
+    email: String,
+    mobile: String,
+    currentAddress: {
+        Line1: String,
+        Line2: String,
+        state: String,
+        country: String
+    },
+    linkedinAccount: String,
+    githubAccount: String,
+    facebookAccount: String
+});
+
+var ExperienceSchema = new mongoose.Schema({
+    workExperience: [
+        {
+            employerName: String,
+            role: String,
+            responsibilities: String,
+            isCurrent: Boolean,
+            startDate: String,
+            endDate: String,
+        }
+    ],
+    trainingExperience: [
+        {
+            organizationName: String,
+            field: String,
+            startDate: String,
+            endDate: String,
+        }
+    ],
+});
+
+var SkillsScema = new mongoose.Schema({
+    technicalSkills: [{ name: String, rating: Number }],
+    nonTechnicalSkills: [{ name: String, rating: Number }],
+    languageSkills: [{ name: String, rating: Number }],
+});
+
+/* Schema Configuration End */
+
+
+/* Models */
+
+let contactModel = mongoose.model('contact', ContactSchema, 'contact');
+let experienceModel = mongoose.model('experience', ExperienceSchema, 'experience');
+let skillsModel = mongoose.model('skills', SkillsScema, 'skills');
+
 /* Models End */
 
 
@@ -56,108 +130,42 @@ router.get(['/','/profile'], (req, res, next) => {
 });
 
 router.get('/contact', (req, res, next) => {
-    const contatDetails = {
-        email: 'hazem.gharib.8@gmail.com',
-        mobile: '+60182829608',
-        currentAddress: {
-          Line1: 'Casa Mutiara',
-          Line2: '17 Jalan Hang Isap, Bukit Bintang',
-          state: 'Kuala Lumpur',
-          country: 'Malaysia'
-        },
-        linkedinAccount: 'https://www.linkedin.com/in/hazemgharib/',
-        githubAccount: 'https://github.com/HazemGharib/',
-        facebookAccount: 'https://www.facebook.com/Hazem.GauBu'
-    };
+   let contatDetails;
 
-    let {schemaError} = Joi.validate(contatDetails, contact);
-    if(schemaError) {res.status(500).send(`Error: ${schemaError}`); next(); return;}
-
-    res.status(200).send(contatDetails);
-    next();
+    contactModel.find((err, data) => {
+        if(err) console.log(err);
+        if(data) contatDetails = data[0];
+        
+        res.status(200).send(contatDetails);
+        next();
+    });
 });
 
 router.get('/experience', (req, res, next) => {
-    const experienceDetails = {
-        workExperience: [
-            {
-                employerName: 'NabdaCare',
-                role: 'Dot Net Developer',
-                responsibilities: 'Lorem Ipsum',
-                isCurrent: false,
-                startDate: new Date(2015, 8, 1),
-                endDate: new Date(2017, 10, 31),
-            },
-            {
-                employerName: 'Virtual Calibre',
-                role: 'SSO Consultant',
-                responsibilities: 'Lorem Ipsum',
-                isCurrent: false,
-                startDate: new Date(2017, 11, 1),
-                endDate: new Date(2018, 8, 31),
-            },
-            {
-                employerName: 'Service Rocket',
-                role: 'Agile Developer',
-                responsibilities: 'Lorem Ipsum',
-                isCurrent: true,
-                startDate: new Date(2018, 9, 1),
-                endDate: new Date(),
-            },
-        ],
-        trainingExperience: [
-            {
-                organizationName: 'Information Technology Inistitiute [ITI]',
-                field: 'Professional Developer Track [.Net Full Stack]',
-                startDate: new Date(2014, 9, 1),
-                endDate: new Date(2015, 6, 30),
-            },
-            {
-                organizationName: 'IBM Egypt',
-                field: 'Customer Relationship Management [CRM]',
-                startDate: new Date(2014, 9, 1),
-                endDate: new Date(2015, 6, 30),
-            },
-        ],
-    };
+    let experienceDetails;
 
-    // let {schemaError} = Joi.validate(contatDetails, contact);
-    // console.log(schemaError);
-    // if(schemaError) {res.status(500).send(`Error: ${schemaError}`); next(); return;}
+    experienceModel.find((err, data) => {
+        if(err) console.log(err);
+        if(data) experienceDetails = data[0];
+        
+        console.log(experienceDetails);
 
-    res.status(200).send(experienceDetails);
-    next();
+        res.status(200).send(experienceDetails);
+        next();
+    });
 });
 
 router.get('/skills', (req, res, next) => {
     
-    const skillsList = {
-        technicalSkills: [
-            { name: '.Net Stack', rating: 4.5 },
-            { name: 'Node JS', rating: 4 },
-            { name: 'Angular 2+', rating: 3.8 },
-            { name: 'Agile', rating: 4.8 },            
-        ],
-        nonTechnicalSkills: [
-            { name: 'Fast Learner', rating: 4.8 },
-            { name: 'Hardworker', rating: 4.2 },
-            { name: 'Creative', rating: 4 },
-            { name: 'Self Motivated', rating: 4 },
-        ],
-        languageSkills: [
-            { name: 'Arabic', rating: 5 },
-            { name: 'English', rating: 4.8 },
-            { name: 'German', rating: 2.5 },
-            { name: 'French', rating: 2.5 },
-        ]
-    };
+    let skillsList;
 
-    // let {schemaError} = Joi.validate(contatDetails, contact);
-    // console.log(schemaError);
-    // if(schemaError) {res.status(500).send(`Error: ${schemaError}`); next(); return;}
-
-    res.status(200).send(skillsList);
-    next();
+    skillsModel.find((err, data) => {
+        if(err) console.log(err);
+        if(data) skillsList = data[0];
+        
+        res.status(200).send(skillsList);
+        next();
+    });
 });
 
 router.get('/config', (req, res, next) => {
