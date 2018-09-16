@@ -1,23 +1,32 @@
 <h2>Contact</h2>
 <mat-spinner *ngIf="!dataReady"></mat-spinner>
 <div *ngIf="dataReady">
-    <p>
-            {{contact?.email}}
-            <br>
-            {{contact?.mobile}}
-            <br>
-            {{contact?.currentAddress?.Line1}}
-            <br>
-            {{contact?.currentAddress?.Line2}}
-            <br>
-            {{contact?.currentAddress?.state}}
-            <br>
-            {{contact?.currentAddress?.country}}
-            <br>
-            {{contact?.linkedinAccount}}
-            <br>
-            {{contact?.githubAccount}}
-            <br>
-            {{contact?.facebookAccount}}
-        </p>
+    <mat-card class="contact-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Shiba Inu</mat-card-title>
+          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+            <p>
+                {{contact?.email}}
+                <br>
+                {{contact?.mobile}}
+                <br>
+                {{contact?.currentAddress?.Line1}}
+                <br>
+                {{contact?.currentAddress?.Line2}}
+                <br>
+                {{contact?.currentAddress?.state}}
+                <br>
+                {{contact?.currentAddress?.country}}
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a mat-fab color="primary" href={{contact?.facebookAccount}}><i class="fab fa-facebook-square fa-2x"></i></a>
+          <a mat-fab color="primary" href={{contact?.linkedinAccount}}><i class="fab fa-linkedin fa-2x"></i></a>
+          <a mat-fab color="primary" href={{contact?.githubAccount}}><i class="fab fa-github fa-2x"></i></a>
+        </mat-card-actions>
+      </mat-card>
 </div>

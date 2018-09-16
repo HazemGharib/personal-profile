@@ -1,0 +1,12 @@
+.contact-card{
+    width: 500px;
+}
+
+i.fab{
+    top: -2px;
+    position: relative;
+}
+
+mat-card-actions a{
+    margin-right: 20px;
+}
