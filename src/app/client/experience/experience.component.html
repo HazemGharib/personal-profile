@@ -12,8 +12,8 @@
             Role: {{item?.role}}<br>
             Responsibilities: {{item?.responsibilities}}<br>
             Current: {{item?.isCurrent}}<br>
-            Start Date: {{item?.startDate | date: 'dd/MM/yyyy'}}<br>
-            End Date: {{item?.endDate | date: 'dd/MM/yyyy'}}<br>
+            Start Date: {{item?.startDate}}<br> <!-- | date: 'dd/MM/yyyy' -->
+            End Date: {{item?.endDate}}<br>
             <br>        
         </li>
     </ul>
@@ -30,8 +30,8 @@
         <li *ngFor="let item of experience?.trainingExperience">
             Employer: {{item?.organizationName}}<br>
             Role: {{item?.field}}<br>
-            Start Date: {{item?.startDate | date: 'dd/MM/yyyy'}}<br>
-            End Date: {{item?.endDate | date: 'dd/MM/yyyy'}}<br>
+            Start Date: {{item?.startDate}}<br>
+            End Date: {{item?.endDate}}<br>
             <br>        
         </li>
     </ul>
