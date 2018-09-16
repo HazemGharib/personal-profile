@@ -2,7 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { MatProgressSpinnerModule } from '@angular/material';
+import {
+  MatProgressSpinnerModule,
+  MatChipsModule,
+  MatIconModule,
+  MatFormFieldModule,
+  MatButtonModule,
+  MatCardModule
+ } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../../environments/environment';
 
@@ -100,7 +107,13 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     OktaAuthModule.initAuth(oktaConfig),
+    BrowserAnimationsModule,
     MatProgressSpinnerModule,
+    MatChipsModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [
     SkillsService,
