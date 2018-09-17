@@ -9,7 +9,11 @@ import {
   MatIconModule,
   MatFormFieldModule,
   MatButtonModule,
-  MatCardModule
+  MatCardModule,
+  MatInputModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatSelectModule,
  } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../../environments/environment';
@@ -115,7 +119,11 @@ const appRoutes: Routes = [
     MatIconModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   providers: [
     SkillsService,
