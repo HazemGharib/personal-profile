@@ -10,11 +10,11 @@ const mongoose = require('mongoose');
 
 // Initialize Mongoose
 mongoose.connect(
-    "mongodb://<dbuser>:<dbpassword>@ds023373.mlab.com:23373/my-portfolio", 
+    `mongodb://<dbuser>:<dbpassword>@${process.env.DB_STRING}`, 
     {
         auth: {
-            user:'admin',
-            password:'zuk@-@dm1n'
+            user: process.env.DB_USER,
+            password:process.env.DB_PASS
         },
         useNewUrlParser:true
     }, 
@@ -90,16 +90,16 @@ var ExperienceSchema = new mongoose.Schema({
             role: String,
             responsibilities: String,
             isCurrent: Boolean,
-            startDate: String,
-            endDate: String,
+            startDate: Date,
+            endDate: Date,
         }
     ],
     trainingExperience: [
         {
             organizationName: String,
             field: String,
-            startDate: String,
-            endDate: String,
+            startDate: Date,
+            endDate: Date,
         }
     ],
 });
