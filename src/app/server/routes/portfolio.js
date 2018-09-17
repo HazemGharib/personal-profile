@@ -147,8 +147,6 @@ router.get('/experience', (req, res, next) => {
     experienceModel.find((err, data) => {
         if(err) console.log(err);
         if(data) experienceDetails = data[0];
-        
-        console.log(experienceDetails);
 
         res.status(200).send(experienceDetails);
         next();
