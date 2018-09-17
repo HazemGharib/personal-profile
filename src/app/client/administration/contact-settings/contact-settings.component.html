@@ -1,11 +1,16 @@
 <div class="row">
   <h5>Email</h5>
-  <input type="text" class="form-control">
+  <mat-form-field class="contact-entry">
+    <input matInput placeholder="Enter your email" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
 </div>
 <br>
 <div class="row">
   <h5>Phone Number</h5>
-  <input type="text" class="form-control">
+  <mat-form-field class="contact-entry">
+    <input matInput placeholder="Enter your phone" type="number">
+  </mat-form-field>
 </div>
 <br>
 <div class="row">
@@ -15,15 +20,21 @@
 <br>
 <div class="row">
   <h5>LinkidIn Profile</h5>
-  <input type="text" class="form-control">
+  <mat-form-field class="contact-entry">
+    <input matInput placeholder="Enter your LinkidIn profile" type="text">
+  </mat-form-field>
 </div>
 <br>
 <div class="row">
-  <h5>GitHub Account</h5>
-  <input type="text" class="form-control">
+  <h5>GitHub Profile</h5>
+  <mat-form-field class="contact-entry">
+    <input matInput placeholder="Enter your GitHub Profile" type="text">
+  </mat-form-field>
 </div>
 <br>
 <div class="row">
-  <h5>Facebook Account</h5>
-  <input type="text" class="form-control">
+  <h5>Facebook Profile</h5>
+  <mat-form-field class="contact-entry">
+    <input matInput placeholder="Enter your Facebook Profile" type="text">
+  </mat-form-field>
 </div>
