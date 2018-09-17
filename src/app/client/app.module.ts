@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import {
   MatProgressSpinnerModule,
   MatChipsModule,
+  MatBadgeModule,
   MatIconModule,
   MatFormFieldModule,
   MatButtonModule,
@@ -110,6 +111,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatChipsModule,
+    MatBadgeModule,
     MatIconModule,
     MatFormFieldModule,
     MatButtonModule,
