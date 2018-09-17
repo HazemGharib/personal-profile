@@ -5,24 +5,35 @@
 <br>
 <div class="row">
   <h5>Summary</h5>
-  <textarea class="form-control" rows="3"></textarea>
+  <mat-form-field class="profile-entry">
+    <textarea matInput placeholder="Summary of profile"></textarea>
+  </mat-form-field>
 </div>
 <br>
 <div class="row">
   <h5>Date of birth</h5>
-  <input type="text" class="form-control">
+  <!-- <input type="text" class="form-control"> -->
+  <mat-form-field class="profile-entry">
+    <input matInput [matDatepicker]="dob" disabled>
+    <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+    <mat-datepicker #dob disabled="false"></mat-datepicker>
+  </mat-form-field>
 </div>
 <br>
 <div class="row">
   <h5>Nationality</h5>
-  <select>
-    <option *ngFor="let country of countriesList" [value]="country?.id">{{country?.name}}</option>
-  </select>
+  <mat-form-field class="profile-entry">
+    <mat-select placeholder="Select Nationality">
+      <mat-option *ngFor="let country of countriesList" [value]="country?.id">{{country?.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
 <br>
 <div class="row">      
   <h5>Current Location</h5>
-  <select>
-    <option *ngFor="let country of countriesList" [value]="country?.id">{{country?.name}}</option>
-  </select>
+  <mat-form-field class="profile-entry">
+    <mat-select placeholder="Select Current Location">
+      <mat-option *ngFor="let country of countriesList" [value]="country?.id">{{country?.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
