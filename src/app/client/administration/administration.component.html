@@ -48,7 +48,7 @@
         
         <app-profile-settings></app-profile-settings>
         
-        <div>
+        <div class="form-button-group">
           <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i>Next</button>
         </div>
       </form>
@@ -60,7 +60,7 @@
       
         <app-contact-settings></app-contact-settings>
         
-        <div>
+        <div class="form-button-group">
           <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>
           <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i>Next</button>
         </div>
@@ -73,7 +73,7 @@
 
         <app-experience-settings></app-experience-settings>
 
-        <div>
+        <div class="form-button-group">
           <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>
           <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i>Next</button>
         </div>
@@ -86,7 +86,7 @@
         
         <app-skills-settings></app-skills-settings>
 
-        <div>
+        <div class="form-button-group">
           <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>
           <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i>Next</button>
         </div>
@@ -96,7 +96,7 @@
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
       You are now done.
-      <div>
+      <div class="form-button-group">
         <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>
         <button class="form-buttons" mat-raised-button color="warn" (click)="stepper.reset()"><i class="button-icon fas fa-redo-alt"></i>Reset</button>
       </div>

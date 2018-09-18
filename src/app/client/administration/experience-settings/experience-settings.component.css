@@ -1,0 +1,14 @@
+i.fas, i.far{
+    top: -2px;
+    position: relative;
+}
+
+.button-icon{
+    margin-right: 15px;
+}
+
+.add-button{
+    margin-bottom: 15px;
+    left: 85%;
+    position: relative;
+}
