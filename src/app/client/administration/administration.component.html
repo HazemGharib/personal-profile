@@ -1,8 +1,8 @@
 <h2>Administration</h2>
-<button class="save-button" mat-raised-button color="primary">Save Profile</button>
+<button class="save-button" mat-raised-button color="primary"><i class="button-icon far fa-save"></i>Save Profile</button>
 <div class="line"></div>
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
       <h2>Profile</h2>
       <br>
@@ -38,4 +38,69 @@
     <br>
     <app-skills-settings></app-skills-settings>
   </div>
+</div> -->
+
+<div class="row">
+  <mat-horizontal-stepper #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Profile</ng-template>
+        
+        <app-profile-settings></app-profile-settings>
+        
+        <div>
+          <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Contact</ng-template>
+      
+        <app-contact-settings></app-contact-settings>
+        
+        <div>
+          <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>
+          <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    
+    <mat-step [stepControl]="thirdFormGroup">
+      <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>Previous Experience</ng-template>
+
+        <app-experience-settings></app-experience-settings>
+
+        <div>
+          <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>
+          <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="fourthFormGroup">
+      <form [formGroup]="fourthFormGroup">
+        <ng-template matStepLabel>Skills</ng-template>
+        
+        <app-skills-settings></app-skills-settings>
+
+        <div>
+          <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>
+          <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>
+        <button class="form-buttons" mat-raised-button color="warn" (click)="stepper.reset()"><i class="button-icon fas fa-redo-alt"></i>Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+  
 </div>

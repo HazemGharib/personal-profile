@@ -15,6 +15,7 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatSelectModule,
+  MatStepperModule,
  } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../../environments/environment';
@@ -125,6 +126,7 @@ const appRoutes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
+    MatStepperModule,
     FormsModule,
     ReactiveFormsModule,
   ],
