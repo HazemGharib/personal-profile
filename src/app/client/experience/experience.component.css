@@ -1,3 +1,17 @@
 .experience-card mat-card-title.mat-card-title{
     height: 55px;
 }
+
+mat-card-content img{
+    width: 80%;
+    display: block;
+    margin: 25px auto;
+}
+
+mat-card.experience-card.mat-card.work-card{
+    height: 700px;
+}
+
+mat-card.experience-card.mat-card.training-card{
+    height: 350px;
+}
