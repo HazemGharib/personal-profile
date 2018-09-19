@@ -10,3 +10,7 @@ i.fab{
 mat-card-actions a{
     margin-right: 20px;
 }
+
+mat-card-content img{
+    width: 100%
+}
