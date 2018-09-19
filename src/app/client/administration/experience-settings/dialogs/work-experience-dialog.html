@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Work Experience Entry</h1>
+<div mat-dialog-content>
+  <p>Please enter a new work experience entry</p>
+  <mat-form-field>
+    <input matInput placeholder="Employer">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Role">
+  </mat-form-field>
+  
+  <mat-form-field>
+    <textarea matInput placeholder="Responsibilities"></textarea>
+  </mat-form-field>
+  
+  <mat-form-field>
+    <input type="checkbox" [(ngModel)]="isCurrent" >
+    <input matInput [value]="isCurrent ? 'Yes' : 'No'" placeholder="Current" class="checkbox" disabled>
+  </mat-form-field>
+  
+  <mat-form-field class="date">
+      <input matInput [matDatepicker]="startDate" placeholder="Choose a start date" disabled>
+      <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+      <mat-datepicker #startDate disabled="false"></mat-datepicker>
+    </mat-form-field>
+  <mat-form-field class="date">
+    <input matInput [matDatepicker]="endDate" placeholder="Choose a end date" disabled>
+    <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+    <mat-datepicker #endDate disabled="false"></mat-datepicker>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button cdkFocusInitial>Ok</button>
+</div>

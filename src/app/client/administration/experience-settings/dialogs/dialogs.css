@@ -1,0 +1,18 @@
+mat-form-field{
+    width: 100%;
+}
+
+mat-form-field.date{
+    width: 40%;
+    margin-right: 20px;
+}
+
+mat-form-field .checkbox{
+    width: 40%;
+    margin-left: 25px;
+}
+
+mat-form-field input[type=checkbox]{
+    float: left;
+    margin-top: 0px;
+}
