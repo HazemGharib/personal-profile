@@ -125,7 +125,8 @@ let skillsModel = mongoose.model('skills', SkillsScema, 'skills');
 /* Routes */
 
 router.get(['/','/profile'], (req, res, next) => {
-    res.status(200).send({title: "Hazem Gharib [Full Stack Developer] - Profile"});
+        res.statusCode = 200;
+        res.send({title: "Hazem Gharib [Full Stack Developer] - Profile"});
     next();
 });
 
@@ -136,7 +137,8 @@ router.get('/contact', (req, res, next) => {
         if(err) console.log(err);
         if(data) contatDetails = data[0];
         
-        res.status(200).send(contatDetails);
+        res.statusCode = 200;
+        res.send(contatDetails);
         next();
     });
 });
@@ -148,7 +150,8 @@ router.get('/experience', (req, res, next) => {
         if(err) console.log(err);
         if(data) experienceDetails = data[0];
 
-        res.status(200).send(experienceDetails);
+        res.statusCode = 200;
+        res.send(experienceDetails);
         next();
     });
 });
@@ -161,7 +164,8 @@ router.get('/skills', (req, res, next) => {
         if(err) console.log(err);
         if(data) skillsList = data[0];
         
-        res.status(200).send(skillsList);
+        res.statusCode = 200;
+        res.send(skillsList);
         next();
     });
 });
@@ -174,7 +178,8 @@ router.get('/config', (req, res, next) => {
 
     console.log(`Server Config:`);
     console.log(configJSON);
-    res.status(200).send(configJSON);
+    res.statusCode = 200;
+    res.send(configJSON);
     next();
 });
 
