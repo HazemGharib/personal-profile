@@ -16,6 +16,9 @@ import {
   MatNativeDateModule,
   MatSelectModule,
   MatStepperModule,
+  MatDialogModule,
+  MatSlideToggleModule,
+  MatCheckboxModule,
  } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../../environments/environment';
@@ -32,6 +35,7 @@ import { ProfileSettingsComponent } from './administration/profile-settings/prof
 import { ContactSettingsComponent } from './administration/contact-settings/contact-settings.component';
 import { ExperienceSettingsComponent } from './administration/experience-settings/experience-settings.component';
 import { SkillsSettingsComponent } from './administration/skills-settings/skills-settings.component';
+import { WorkExperienceDialogComponent } from './administration/experience-settings/dialogs/work-experience-dialog.component';
 
 import { SkillsService } from './skills/skills.service';
 import { ProfileService } from './profile/profile.service';
@@ -40,10 +44,7 @@ import { ContactService } from './contact/contact.service';
 
 import { AdminGuard } from './admin.guard';
 
-import {
-  OktaAuthModule,
-  OktaCallbackComponent,
-} from '@okta/okta-angular';
+import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
 
 const oktaConfig = {
   issuer: `https://dev-317930.oktapreview.com/oauth2/default`,
@@ -108,6 +109,7 @@ const appRoutes: Routes = [
     ContactSettingsComponent,
     ExperienceSettingsComponent,
     SkillsSettingsComponent,
+    WorkExperienceDialogComponent,
   ],
   imports: [
     HttpModule,
@@ -127,9 +129,13 @@ const appRoutes: Routes = [
     MatNativeDateModule,
     MatSelectModule,
     MatStepperModule,
+    MatDialogModule,
+    MatSlideToggleModule,
+    MatCheckboxModule,
     FormsModule,
     ReactiveFormsModule,
   ],
+  entryComponents: [WorkExperienceDialogComponent],
   providers: [
     SkillsService,
     ProfileService,
