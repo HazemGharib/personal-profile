@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { OktaAuthService } from '@okta/okta-angular';
 
@@ -17,12 +17,7 @@ export class AdministrationComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder, private oktaAuth: OktaAuthService) { }
 
-  async ngOnInit() {
-    const accessToken = await this.oktaAuth.getAccessToken();
-    const headers = new Headers({
-      Authorization: 'Bearer ' + accessToken
-    });
-
+   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
