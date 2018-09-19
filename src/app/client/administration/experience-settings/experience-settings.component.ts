@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { WorkExperienceDialogComponent } from './dialogs/work-experience-dialog.component';
 
 @Component({
   selector: 'app-experience-settings',
@@ -42,9 +44,27 @@ export class ExperienceSettingsComponent implements OnInit {
     ]
 };
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(WorkExperienceDialogComponent, {
+        width: '450px',
+        data: {
+            employer: '',
+            role: '',
+            responsibilities: '',
+            isCurrent: false,
+            startDate: new Date(),
+            endDate: new Date(),
+        }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+        this.experience.workExperience.push(result);
+    });
   }
 
 }
