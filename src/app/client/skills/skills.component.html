@@ -1,7 +1,7 @@
 <h2>Skills</h2>
 <mat-spinner *ngIf="!dataReady"></mat-spinner>
 <div *ngIf="dataReady">
-	<div class="row">
+	<!-- <div class="row">
 		<p>
 			<b>
 				<div>Technical Skills</div>
@@ -56,6 +56,66 @@
 				<span matBadge={{languageSkill?.rating}} matBadgePosition="after" matBadgeColor="accent"></span>
 			</span>
 		</mat-chip-list>
+	</div> -->
+
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<mat-card>
+			<mat-card-header>
+				<mat-card-title>
+					<h4><strong>Technical Skills</strong></h4>                
+				</mat-card-title>
+			</mat-card-header>
+			<mat-card-content>
+				<mat-chip-list #technicalSkillsChipList>
+					<span class="skill-chip" *ngFor="let technicalSkill of skillsList?.technicalSkills">
+						<mat-chip color="primary" selected>
+							<span>{{technicalSkill?.name}}</span>
+						</mat-chip>
+						<span matBadge={{technicalSkill?.rating}} matBadgePosition="after" matBadgeColor="accent"></span>
+					</span>
+				</mat-chip-list>
+			</mat-card-content>
+		</mat-card>
+	</div>
+
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<mat-card>
+			<mat-card-header>
+				<mat-card-title>
+					<h4><strong>Non Technical Skills</strong></h4>                
+				</mat-card-title>
+			</mat-card-header>
+			<mat-card-content>
+				<mat-chip-list #nonTechnicalSkillsChipList>
+					<span class="skill-chip" *ngFor="let nonTechnicalSkill of skillsList?.nonTechnicalSkills">
+						<mat-chip color="primary" selected>
+							<span>{{nonTechnicalSkill?.name}}</span>
+						</mat-chip>
+						<span matBadge={{nonTechnicalSkill?.rating}} matBadgePosition="after" matBadgeColor="accent"></span>
+					</span>
+				</mat-chip-list>
+			</mat-card-content>
+		</mat-card>
+	</div>
+
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<mat-card>
+			<mat-card-header>
+				<mat-card-title>
+					<h4><strong>Language Skills</strong></h4>                
+				</mat-card-title>
+			</mat-card-header>
+			<mat-card-content>
+				<mat-chip-list #languageSkillsChipList>
+					<span class="skill-chip" *ngFor="let languageSkill of skillsList?.languageSkills">
+						<mat-chip color="primary" selected>
+							<span>{{languageSkill?.name}}</span>
+						</mat-chip>
+						<span matBadge={{languageSkill?.rating}} matBadgePosition="after" matBadgeColor="accent"></span>
+					</span>
+				</mat-chip-list>
+			</mat-card-content>
+		</mat-card>
 	</div>
 
 </div>
