@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExperienceService } from './experience.service';
+import { Experience } from './experience';
 
 @Component({
   selector: 'app-experience',
@@ -9,7 +10,7 @@ import { ExperienceService } from './experience.service';
 export class ExperienceComponent implements OnInit {
 
   dataReady: boolean;
-  experience: any;
+  experience: Experience;
 
   constructor(private experienceService: ExperienceService) { }
 
