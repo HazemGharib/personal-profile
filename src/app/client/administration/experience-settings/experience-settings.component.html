@@ -2,7 +2,7 @@
     <h5>Work Experience</h5>
     
     <div class="row">
-        <button class="button-icon add-button" mat-fab color="primary" (click)="openWorkExperienceDialog()"><i class="fas fa-plus"></i></button>
+        <button class="button-icon add-button" mat-fab color="primary" (click)="openWorkExperienceDialog(null)"><i class="fas fa-plus"></i></button>
     </div>
     <mat-spinner *ngIf="!dataReady"></mat-spinner>
     <div *ngIf="dataReady" >
@@ -42,7 +42,7 @@
     <h5>Training Experience</h5>
 
     <div class="row">
-        <button class="button-icon add-button" mat-fab color="primary" (click)="openTrainingExperienceDialog()"><i class="fas fa-plus"></i></button>
+        <button class="button-icon add-button" mat-fab color="primary" (click)="openTrainingExperienceDialog(null)"><i class="fas fa-plus"></i></button>
     </div>
     <mat-spinner *ngIf="!dataReady"></mat-spinner>
     <div *ngIf="dataReady">
