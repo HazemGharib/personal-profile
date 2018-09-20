@@ -27,12 +27,13 @@
                 </mat-card-content>
         
                 <mat-card-actions>
-                    <button class="button-icon" mat-fab color="primary"><i class="fas fa-edit"></i></button>
-                    <button class="button-icon" mat-fab color="primary"><i class="far fa-trash-alt"></i></button>
+                    <button class="button-icon" mat-fab color="primary" (click)="openWorkExperienceDialog(item)"><i class="fas fa-edit"></i></button>
+                    <button class="button-icon" mat-fab color="primary" (click)="removeWorkExperienceEntry(item)"><i class="far fa-trash-alt"></i></button>
                 </mat-card-actions>
             </mat-card>            
         </div>
     </div>
+    <div class="empty-list" *ngIf="experience.workExperience.length == 0">Nothing Left</div>
 </div>
 
 <br>
@@ -62,10 +63,11 @@
                 </mat-card-content>
         
                 <mat-card-actions>
-                    <button class="button-icon" mat-fab color="primary"><i class="fas fa-edit"></i></button>
-                    <button class="button-icon" mat-fab color="primary"><i class="far fa-trash-alt"></i></button>
+                    <button class="button-icon" mat-fab color="primary" (click)="openTrainingExperienceDialog(item)"><i class="fas fa-edit"></i></button>
+                    <button class="button-icon" mat-fab color="primary" (click)="removeTrainingExperienceEntry(item)"><i class="far fa-trash-alt"></i></button>
                 </mat-card-actions>
             </mat-card>            
         </div>
     </div>
+    <div class="empty-list" *ngIf="experience.trainingExperience.length == 0">Nothing Left</div>
 </div>

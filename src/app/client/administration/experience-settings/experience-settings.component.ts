@@ -59,6 +59,11 @@ export class ExperienceSettingsComponent implements OnInit {
             }
         });
     }
+    removeWorkExperienceEntry(workExperienceEntry: WorkExperienceEntry) {
+        this.experience.workExperience.splice(this.experience.workExperience.indexOf(workExperienceEntry), 1);
+        console.log(this.experience.workExperience);
+    }
+
     openTrainingExperienceDialog(trainingExperienceEntry: TrainingExperienceEntry): void {
         let _trainingExperienceEntry = trainingExperienceEntry;
 
@@ -89,5 +94,8 @@ export class ExperienceSettingsComponent implements OnInit {
                 this.experience.trainingExperience.push(_trainingExperienceEntry);
             }
         });
+    }
+    removeTrainingExperienceEntry(trainingExperienceEntry: TrainingExperienceEntry) {
+        this.experience.trainingExperience.splice(this.experience.trainingExperience.indexOf(trainingExperienceEntry), 1);
     }
 }
