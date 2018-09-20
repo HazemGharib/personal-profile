@@ -1,40 +1,67 @@
 <div class="row">
-  <h5>Email</h5>
+  
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <mat-form-field class="contact-entry">
+      <input matInput placeholder="Email" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+  
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <mat-form-field class="contact-entry">
+      <input matInput placeholder="Phone Number" type="number">
+    </mat-form-field>
+  </div>
+ 
+</div>
+<br>
+<div class="">
+  
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <mat-form-field class="contact-entry">
+        <input matInput placeholder="Country" type="text">
+      </mat-form-field>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <mat-form-field class="contact-entry">
+        <input matInput placeholder="State" type="text">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <mat-form-field class="contact-entry">
+        <input matInput placeholder="Line 1" type="text">
+      </mat-form-field>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <mat-form-field class="contact-entry">
+        <input matInput placeholder="Line 2" type="text">
+      </mat-form-field>
+    </div>
+
+  </div>    
+</div>
+<br>
+<div class="">
   <mat-form-field class="contact-entry">
-    <input matInput placeholder="Enter your email" [formControl]="email" required>
-    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    <input matInput placeholder="LinkidIn profile" type="text">
   </mat-form-field>
 </div>
 <br>
-<div class="row">
-  <h5>Phone Number</h5>
+<div class="">
   <mat-form-field class="contact-entry">
-    <input matInput placeholder="Enter your phone" type="number">
+    <input matInput placeholder="GitHub Profile" type="text">
   </mat-form-field>
 </div>
 <br>
-<div class="row">
-    <h5>Contact Address</h5>
-    <textarea class="form-control" rows="3"></textarea>
-</div>
-<br>
-<div class="row">
-  <h5>LinkidIn Profile</h5>
+<div class="">
   <mat-form-field class="contact-entry">
-    <input matInput placeholder="Enter your LinkidIn profile" type="text">
-  </mat-form-field>
-</div>
-<br>
-<div class="row">
-  <h5>GitHub Profile</h5>
-  <mat-form-field class="contact-entry">
-    <input matInput placeholder="Enter your GitHub Profile" type="text">
-  </mat-form-field>
-</div>
-<br>
-<div class="row">
-  <h5>Facebook Profile</h5>
-  <mat-form-field class="contact-entry">
-    <input matInput placeholder="Enter your Facebook Profile" type="text">
+    <input matInput placeholder="Facebook Profile" type="text">
   </mat-form-field>
 </div>

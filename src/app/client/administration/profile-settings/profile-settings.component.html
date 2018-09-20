@@ -4,35 +4,31 @@
 </div>
 <br>
 <div class="row">
-  <h5>Summary</h5>
   <mat-form-field class="profile-entry">
-    <textarea matInput placeholder="Summary of profile"></textarea>
+    <textarea matInput placeholder="Summary"></textarea>
   </mat-form-field>
 </div>
 <br>
 <div class="row">
-  <h5>Date of birth</h5>
-  <mat-form-field class="profile-entry">
-    <input matInput [matDatepicker]="dob" disabled>
-    <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
-    <mat-datepicker #dob disabled="false"></mat-datepicker>
-  </mat-form-field>
-</div>
-<br>
-<div class="row">
-  <h5>Nationality</h5>
-  <mat-form-field class="profile-entry">
-    <mat-select placeholder="Select Nationality">
-      <mat-option *ngFor="let country of countriesList" [value]="country?.id">{{country?.name}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
-<br>
-<div class="row">      
-  <h5>Current Location</h5>
-  <mat-form-field class="profile-entry">
-    <mat-select placeholder="Select Current Location">
-      <mat-option *ngFor="let country of countriesList" [value]="country?.id">{{country?.name}}</mat-option>
-    </mat-select>
-  </mat-form-field>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <mat-form-field class="profile-entry">
+        <input matInput [matDatepicker]="dob" placeholder="Date of birth" disabled>
+        <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+        <mat-datepicker #dob disabled="false"></mat-datepicker>
+      </mat-form-field>
+    </div>  
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      <mat-form-field class="profile-entry">
+        <mat-select placeholder="Nationality">
+          <mat-option *ngFor="let country of countriesList" [value]="country?.id">{{country?.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>  
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">      
+      <mat-form-field class="profile-entry">
+        <mat-select placeholder="Current Location">
+          <mat-option *ngFor="let country of countriesList" [value]="country?.id">{{country?.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 </div>
