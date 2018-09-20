@@ -26,48 +26,13 @@ mongoose.connect(
     }
 );
 
-/* Validation Schema */
-
-// Contact Models
-const address = {
-    Line1: Joi.string(),
-    Line2: Joi.string(),
-    state: Joi.string().required(),
-    country: Joi.string().required()
-};
-const contact = {
-    email: Joi.string().required().min(6),
-    mobile: Joi.string().required().min(6),
-    currentAddress: Joi.object(address).required(),
-    linkedinAccount: Joi.string().required().min(6),
-    githubAccount: Joi.string().required().min(6),
-    facebookAccount: Joi.string().required().min(6)
-};
-
-// Experience Models
-const workExperienceEntry = {
-    employerName: Joi.string(),
-    role: Joi.string(),
-    projectsDescription: Joi.string(),
-    isCurrent: Joi.boolean(),
-    startDate: Joi.date(),
-    endDate: Joi.date(),
-};
-const trainingExperienceEntry = {
-    organizationName: Joi.string(),
-    field: Joi.string(),
-    startDate: Joi.date(),
-    endDate: Joi.date(),
-};
-const experience = {
-    workExperience: Joi.object(workExperienceEntry),
-    trainingExperience: Joi.object(trainingExperienceEntry),
-};
-
-/* Validation Schema End */
-
-
 /* Schema Configuration */
+var ProfileSchema = new mongoose.Schema({
+    profileSections:[{
+        sectionName: String,
+        sectionContent: String
+    }]
+});
 
 var ContactSchema = new mongoose.Schema({
     email: String,
@@ -115,6 +80,7 @@ var SkillsScema = new mongoose.Schema({
 
 /* Models */
 
+let profileModel = mongoose.model('profile', ProfileSchema, 'profile');
 let contactModel = mongoose.model('contact', ContactSchema, 'contact');
 let experienceModel = mongoose.model('experience', ExperienceSchema, 'experience');
 let skillsModel = mongoose.model('skills', SkillsScema, 'skills');
@@ -125,9 +91,16 @@ let skillsModel = mongoose.model('skills', SkillsScema, 'skills');
 /* Routes */
 
 router.get(['/','/profile'], (req, res, next) => {
+    let profileDetails;
+
+    profileModel.find((err, data) => {
+        if(err) console.log(err);
+        if(data) profileDetails = data[0];
+
         res.statusCode = 200;
-        res.send({title: "Under construction . . . . ."});
-    next();
+        res.send(profileDetails);
+        next();
+    });
 });
 
 router.get('/contact', (req, res, next) => {

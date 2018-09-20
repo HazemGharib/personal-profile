@@ -30,7 +30,7 @@ body {
     height: 1px;
 }
 .hr-text:after {
-    content: attr(data-content);
+    content: attr(title);
     position: relative;
     display: inline-block;
     color: black;
@@ -41,3 +41,11 @@ body {
     background-color: #fcfcfa;
 }
 
+mat-spinner, .page-container img{
+    margin: auto;
+    display: block;
+}
+
+.profile-heading, .profile-subtitle{
+    text-align: center;
+}

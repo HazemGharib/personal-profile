@@ -28,3 +28,8 @@ mat-card-content p {
     font-size: 13px;
     margin-top: 15%;
 }
+
+mat-spinner{
+    margin: auto;
+    display: block;
+}

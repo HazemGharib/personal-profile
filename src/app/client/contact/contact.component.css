@@ -14,3 +14,8 @@ mat-card-actions a{
 mat-card-content img{
     width: 100%
 }
+
+mat-spinner{
+    margin: auto;
+    display: block;
+}
