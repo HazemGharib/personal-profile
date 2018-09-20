@@ -36,6 +36,7 @@ import { ContactSettingsComponent } from './administration/contact-settings/cont
 import { ExperienceSettingsComponent } from './administration/experience-settings/experience-settings.component';
 import { SkillsSettingsComponent } from './administration/skills-settings/skills-settings.component';
 import { WorkExperienceDialogComponent } from './administration/experience-settings/dialogs/work-experience-dialog.component';
+import { TrainingExperienceDialogComponent } from './administration/experience-settings/dialogs/training-experience-dialog.component';
 
 import { SkillsService } from './skills/skills.service';
 import { ProfileService } from './profile/profile.service';
@@ -110,6 +111,7 @@ const appRoutes: Routes = [
     ExperienceSettingsComponent,
     SkillsSettingsComponent,
     WorkExperienceDialogComponent,
+    TrainingExperienceDialogComponent,
   ],
   imports: [
     HttpModule,
@@ -135,7 +137,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
   ],
-  entryComponents: [WorkExperienceDialogComponent],
+  entryComponents: [WorkExperienceDialogComponent, TrainingExperienceDialogComponent],
   providers: [
     SkillsService,
     ProfileService,

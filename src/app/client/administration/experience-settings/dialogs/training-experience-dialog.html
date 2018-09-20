@@ -1,27 +1,18 @@
-<h1 mat-dialog-title>Work Experience Entry</h1>
+<h1 mat-dialog-title>Training Experience Entry</h1>
 <div mat-dialog-content>
-  <p>Please enter a new work experience entry</p>
+  <p>Please enter a new training experience entry</p>
   <mat-form-field>
-    <input matInput [(ngModel)]="data.employerName" placeholder="Employer">
+    <input matInput [(ngModel)]="data.organizationName" placeholder="Organization">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [(ngModel)]="data.employerLogo" placeholder="Employer Logo URL">
+    <input matInput [(ngModel)]="data.organizationLogo" placeholder="Organization Logo URL">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [(ngModel)]="data.role" placeholder="Role">
+    <input matInput [(ngModel)]="data.field" placeholder="Field">
   </mat-form-field>
-  
-  <mat-form-field>
-    <textarea matInput [(ngModel)]="data.responsibilities" placeholder="Responsibilities"></textarea>
-  </mat-form-field>
-  
-  <mat-form-field>
-    <input type="checkbox" [(ngModel)]="data.isCurrent" >
-    <input matInput [value]="data? (data.isCurrent ? 'Yes' : 'No') : 'No'" placeholder="Current" class="checkbox" disabled>
-  </mat-form-field>
-  
+ 
   <mat-form-field class="date">
       <input matInput [(ngModel)]="data.startDate" [matDatepicker]="startDate" placeholder="Choose a start date" disabled>
       <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { WorkExperienceDialogComponent } from './dialogs/work-experience-dialog.component';
+import { TrainingExperienceDialogComponent } from './dialogs/training-experience-dialog.component';
+import { ExperienceService } from './../../experience/experience.service';
+import { Experience, WorkExperienceEntry, TrainingExperienceEntry } from './../../experience/experience';
 
 @Component({
   selector: 'app-experience-settings',
@@ -9,62 +12,82 @@ import { WorkExperienceDialogComponent } from './dialogs/work-experience-dialog.
 })
 export class ExperienceSettingsComponent implements OnInit {
 
-  experience = {
-    workExperience: [
-        {
-            employerName: 'NabdaCare',
-            role: 'Dot Net Developer',
-            responsibilities: 'Lorem Ipsum',
-            isCurrent: false,
-            startDate: new Date(2018, 9, 18),
-            endDate: new Date(2018, 9, 18),
-        },
-        {
-            employerName: 'Service Rocket',
-            role: 'Agile Developer',
-            responsibilities: 'Lorem Ipsum',
-            isCurrent: true,
-            startDate: new Date(2018, 9, 18),
-            endDate: new Date(2018, 9, 18)
+    dataReady: boolean;
+    experience: Experience;
+
+    constructor(private experienceService: ExperienceService, public workDialog: MatDialog, public trainingDialog: MatDialog) { }
+
+    ngOnInit() {
+        this.experienceService.getExperience().subscribe(experience => {
+            this.experience = experience;
+            this.dataReady = true;
+        });
+    }
+
+    openWorkExperienceDialog(workExperienceEntry: WorkExperienceEntry): void {
+        let _workExperienceEntry = workExperienceEntry;
+
+        if (_workExperienceEntry === undefined || _workExperienceEntry === null) {
+            _workExperienceEntry = {
+                employerName: '',
+                employerLogo: '',
+                role: '',
+                responsibilities: '',
+                isCurrent: false,
+                startDate: new Date(),
+                endDate: new Date(),
+            };
         }
-    ],
-    trainingExperience: [
-        {
-            organizationName: 'Information Technology Inistitiute [ITI]',
-            field: 'Professional Developer Track [.Net Full Stack]',
-            startDate: new Date(2018, 9, 18),
-            endDate: new Date(2018, 9, 18)
-        },
-        {
-            organizationName: 'IBM Egypt',
-            field: 'Customer Relationship Management [CRM]',
-            startDate: new Date(2018, 9, 18),
-            endDate: new Date(2018, 9, 18)
+
+        const dialogRef = this.workDialog.open(WorkExperienceDialogComponent, {
+            width: '450px',
+            data: _workExperienceEntry
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                _workExperienceEntry = {
+                    employerName: result.employerName,
+                    employerLogo: result.employerLogo,
+                    role: result.role,
+                    responsibilities: result.responsibilities,
+                    isCurrent: result.isCurrent,
+                    startDate: result.startDate,
+                    endDate: result.endDate,
+                };
+                this.experience.workExperience.push(_workExperienceEntry);
+            }
+        });
+    }
+    openTrainingExperienceDialog(trainingExperienceEntry: TrainingExperienceEntry): void {
+        let _trainingExperienceEntry = trainingExperienceEntry;
+
+        if (_trainingExperienceEntry === undefined || _trainingExperienceEntry === null) {
+            _trainingExperienceEntry = {
+                organizationName: '',
+                organizationLogo: '',
+                field: '',
+                startDate: new Date(),
+                endDate: new Date(),
+            };
         }
-    ]
-};
 
-  constructor(public dialog: MatDialog) { }
+        const dialogRef = this.trainingDialog.open(TrainingExperienceDialogComponent, {
+            width: '450px',
+            data: _trainingExperienceEntry
+        });
 
-  ngOnInit() {
-  }
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(WorkExperienceDialogComponent, {
-        width: '450px',
-        data: {
-            employer: '',
-            role: '',
-            responsibilities: '',
-            isCurrent: false,
-            startDate: new Date(),
-            endDate: new Date(),
-        }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-        this.experience.workExperience.push(result);
-    });
-  }
-
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                _trainingExperienceEntry = {
+                    organizationName: result.organizationName,
+                    organizationLogo: result.organizationLogo,
+                    field: result.field,
+                    startDate: result.startDate,
+                    endDate: result.endDate,
+                };
+                this.experience.trainingExperience.push(_trainingExperienceEntry);
+            }
+        });
+    }
 }

@@ -12,3 +12,7 @@ i.fas, i.far{
     left: 85%;
     position: relative;
 }
+
+div div.col-xs-4.col-sm-4.col-md-4.col-lg-4 {
+    margin-bottom: 20px;
+}

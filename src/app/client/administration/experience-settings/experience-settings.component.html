@@ -1,67 +1,71 @@
 <div class="row">
-  <h5>Work Experience</h5>
-
-  <div class="row">
-    <button class="button-icon add-button" mat-fab color="primary" (click)="openDialog()"><i class="fas fa-plus"></i></button>
-  </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" *ngFor="let item of experience?.workExperience">
-    <mat-card class="experience-card">
-        <mat-card-header>
-            <mat-card-title>
-                <h4><strong>{{item?.employerName}}</strong></h4>
-            </mat-card-title>
-            <mat-card-subtitle><i>{{item?.role}}</i></mat-card-subtitle>
-        </mat-card-header>
-
-        <mat-card-content>
-            <p>
-                <strong>Responsibilities</strong>
-                <br>
-                {{item?.responsibilities}}
-                <br>
-                <br>
-                <span>{{item?.startDate | date: 'dd/MM/yyyy'}}</span> - <span *ngIf="!item?.isCurrent">{{item?.endDate | date: 'dd/MM/yyyy'}}</span><span *ngIf="item?.isCurrent">Present</span>
-            </p>
-        </mat-card-content>
-
-        <mat-card-actions>
-          <button class="button-icon" mat-fab color="primary"><i class="fas fa-edit"></i></button>
-          <button class="button-icon" mat-fab color="primary"><i class="far fa-trash-alt"></i></button>
-        </mat-card-actions>
-    </mat-card>            
-  </div>
-
+    <h5>Work Experience</h5>
+    
+    <div class="row">
+        <button class="button-icon add-button" mat-fab color="primary" (click)="openWorkExperienceDialog()"><i class="fas fa-plus"></i></button>
+    </div>
+    <mat-spinner *ngIf="!dataReady"></mat-spinner>
+    <div *ngIf="dataReady" >
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" *ngFor="let item of experience?.workExperience">
+            <mat-card class="experience-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        <h4><strong>{{item?.employerName}}</strong></h4>
+                    </mat-card-title>
+                    <mat-card-subtitle><i>{{item?.role}}</i></mat-card-subtitle>
+                </mat-card-header>
+        
+                <mat-card-content>
+                    <p>
+                        <strong>Responsibilities</strong>
+                        <br>
+                        {{item?.responsibilities}}
+                        <br>
+                        <br>
+                        <span>{{item?.startDate | date: 'dd/MM/yyyy'}}</span> - <span *ngIf="!item?.isCurrent">{{item?.endDate | date: 'dd/MM/yyyy'}}</span><span *ngIf="item?.isCurrent">Present</span>
+                    </p>
+                </mat-card-content>
+        
+                <mat-card-actions>
+                    <button class="button-icon" mat-fab color="primary"><i class="fas fa-edit"></i></button>
+                    <button class="button-icon" mat-fab color="primary"><i class="far fa-trash-alt"></i></button>
+                </mat-card-actions>
+            </mat-card>            
+        </div>
+    </div>
 </div>
 
 <br>
 <br>
 
 <div class="row">
-  <h5>Training Experience</h5>
+    <h5>Training Experience</h5>
 
-  <div class="row">
-    <button class="button-icon add-button" mat-fab color="primary" (click)="openDialog()"><i class="fas fa-plus"></i></button>
-  </div>
-  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" *ngFor="let item of experience?.trainingExperience">
-    <mat-card class="experience-card">
-        <mat-card-header>
-            <mat-card-title>
-                <h4><strong>{{item?.organizationName}}</strong></h4>
-            </mat-card-title>
-            <mat-card-subtitle><i>{{item?.field}}</i></mat-card-subtitle>
-        </mat-card-header>
+    <div class="row">
+        <button class="button-icon add-button" mat-fab color="primary" (click)="openTrainingExperienceDialog()"><i class="fas fa-plus"></i></button>
+    </div>
+    <mat-spinner *ngIf="!dataReady"></mat-spinner>
+    <div *ngIf="dataReady">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" *ngFor="let item of experience?.trainingExperience">
+            <mat-card class="experience-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        <h4><strong>{{item?.organizationName}}</strong></h4>
+                    </mat-card-title>
+                    <mat-card-subtitle><i>{{item?.field}}</i></mat-card-subtitle>
+                </mat-card-header>
+                
+                <mat-card-content>
+                    <p>
+                        <span>{{item?.startDate | date: 'dd/MM/yyyy'}}</span> - <span *ngIf="!item?.isCurrent">{{item?.endDate | date: 'dd/MM/yyyy'}}</span><span *ngIf="item?.isCurrent">Present</span>
+                    </p>
+                </mat-card-content>
         
-        <mat-card-content>
-            <p>
-                <span>{{item?.startDate | date: 'dd/MM/yyyy'}}</span> - <span *ngIf="!item?.isCurrent">{{item?.endDate | date: 'dd/MM/yyyy'}}</span><span *ngIf="item?.isCurrent">Present</span>
-            </p>
-        </mat-card-content>
-
-        <mat-card-actions>
-          <button class="button-icon" mat-fab color="primary"><i class="fas fa-edit"></i></button>
-          <button class="button-icon" mat-fab color="primary"><i class="far fa-trash-alt"></i></button>
-        </mat-card-actions>
-    </mat-card>            
-  </div>
-
+                <mat-card-actions>
+                    <button class="button-icon" mat-fab color="primary"><i class="fas fa-edit"></i></button>
+                    <button class="button-icon" mat-fab color="primary"><i class="far fa-trash-alt"></i></button>
+                </mat-card-actions>
+            </mat-card>            
+        </div>
+    </div>
 </div>
