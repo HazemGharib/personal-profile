@@ -18,13 +18,13 @@
                 </mat-card-header>
                 
                 <mat-card-content>
-                    <div style="margin-top: 24px;">
+                    <div>
                         <img mat-card-image [src]="item.employerLogo">
                     </div>
                     <p>
                         <strong>Responsibilities</strong>
                         <br>
-                        {{item?.responsibilities}}
+                        <span [innerHTML]="item?.responsibilities"></span>
                         <br>
                         <br>
                         <span>{{item?.startDate | date: 'dd/MM/yyyy'}}</span> - <span *ngIf="!item?.isCurrent">{{item?.endDate | date: 'dd/MM/yyyy'}}</span><span *ngIf="item?.isCurrent">Present</span>
@@ -54,7 +54,7 @@
                 </mat-card-header>
                 
                 <mat-card-content>
-                    <div style="margin-top: 24px;">
+                    <div>
                     <img mat-card-image [src]="item.organizationLogo">
                     </div>
                     <p>
