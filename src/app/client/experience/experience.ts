@@ -5,6 +5,7 @@ export interface Experience {
 
 export interface WorkExperienceEntry {
     employerName: string;
+    employerLogo: string;
     role: string;
     responsibilities: string;
     isCurrent: boolean;
@@ -13,6 +14,7 @@ export interface WorkExperienceEntry {
 }
 export interface TrainingExperienceEntry {
     organizationName: string;
+    organizationLogo: string;
     field: string;
     startDate: Date;
     endDate: Date;
