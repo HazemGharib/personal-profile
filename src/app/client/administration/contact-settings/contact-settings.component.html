@@ -1,67 +1,77 @@
-<div class="row">
+<div *ngIf="dataReady">
+  <div class="row">
+    
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <mat-form-field class="contact-entry">
+        <input matInput placeholder="Email" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+    
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <mat-form-field class="contact-entry">
+        <input matInput placeholder="Phone Number" type="text" [formControl]="phoneNumber" required>
+        <mat-error *ngIf="phoneNumber.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
   
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+  </div>
+  <br>
+  <div class="">
+    
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <mat-form-field class="contact-entry">
+          <input matInput placeholder="Country" type="text" [formControl]="country" required>
+          <mat-error *ngIf="country.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <mat-form-field class="contact-entry">
+          <input matInput placeholder="State" type="text" [formControl]="state" required>
+          <mat-error *ngIf="state.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <mat-form-field class="contact-entry">
+          <input matInput placeholder="Line 1" type="text" [formControl]="line1" required>
+          <mat-error *ngIf="line1.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <mat-form-field class="contact-entry">
+          <input matInput placeholder="Line 2" type="text" [formControl]="line2" required>
+          <mat-error *ngIf="line2.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+
+    </div>    
+  </div>
+  <br>
+  <div class="">
     <mat-form-field class="contact-entry">
-      <input matInput placeholder="Email" [formControl]="email" required>
-      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      <input matInput placeholder="LinkidIn profile" type="text" [formControl]="facebookProfile" required>
+      <mat-error *ngIf="facebookProfile.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
   </div>
-  
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+  <br>
+  <div class="">
     <mat-form-field class="contact-entry">
-      <input matInput placeholder="Phone Number" type="number">
+      <input matInput placeholder="GitHub Profile" type="text" [formControl]="linkedinProfile" required>
+      <mat-error *ngIf="linkedinProfile.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
   </div>
- 
-</div>
-<br>
-<div class="">
-  
-  <div class="row">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <mat-form-field class="contact-entry">
-        <input matInput placeholder="Country" type="text">
-      </mat-form-field>
-    </div>
-
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <mat-form-field class="contact-entry">
-        <input matInput placeholder="State" type="text">
-      </mat-form-field>
-    </div>
+  <br>
+  <div class="">
+    <mat-form-field class="contact-entry">
+      <input matInput placeholder="Facebook Profile" type="text" [formControl]="githubProfile" required>
+      <mat-error *ngIf="githubProfile.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
   </div>
-
-  <div class="row">
-
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <mat-form-field class="contact-entry">
-        <input matInput placeholder="Line 1" type="text">
-      </mat-form-field>
-    </div>
-
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <mat-form-field class="contact-entry">
-        <input matInput placeholder="Line 2" type="text">
-      </mat-form-field>
-    </div>
-
-  </div>    
-</div>
-<br>
-<div class="">
-  <mat-form-field class="contact-entry">
-    <input matInput placeholder="LinkidIn profile" type="text">
-  </mat-form-field>
-</div>
-<br>
-<div class="">
-  <mat-form-field class="contact-entry">
-    <input matInput placeholder="GitHub Profile" type="text">
-  </mat-form-field>
-</div>
-<br>
-<div class="">
-  <mat-form-field class="contact-entry">
-    <input matInput placeholder="Facebook Profile" type="text">
-  </mat-form-field>
 </div>
