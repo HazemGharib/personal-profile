@@ -1,19 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from '@angular/material';
-
-export interface TechnicalSkill {
-  name: string;
-  rating: number;
-}
-export interface NonTechnicalSkill {
-  name: string;
-  rating: number;
-}
-export interface LanguageSkill {
-  name: string;
-  rating: number;
-}
+import { Skills, TechnicalSkillEntry, NonTechnicalSkillEntry, LanguageSkillEntry } from './../../skills/skills';
+import { SkillsService } from './../../skills/skills.service';
 
 @Component({
   selector: 'app-skills-settings',
@@ -28,28 +17,16 @@ export class SkillsSettingsComponent implements OnInit {
   addOnBlur = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
-  technicalSkills: TechnicalSkill[] = [
-    { name: '.Net Stack', rating: 4.5 },
-    { name: 'Node JS', rating: 4 },
-    { name: 'Angular 2+', rating: 3.8 },
-    { name: 'Agile', rating: 4.8 }
-  ];
-  nonTechnicalSkills: NonTechnicalSkill[] = [
-    { name: 'Fast Learner', rating: 4.8 },
-    { name: 'Hardworker', rating: 4.2 },
-    { name: 'Creative', rating: 4 },
-    { name: 'Self Motivated', rating: 4 }
-  ];
-  languageSkills: LanguageSkill[] = [
-    { name: 'Arabic', rating: 5 },
-    { name: 'English', rating: 4.8 },
-    { name: 'German', rating: 2.5 },
-    { name: 'French', rating: 2.5 }
-  ];
+  dataReady: boolean;
+  skills: Skills;
 
-  constructor() { }
+  constructor(private skillsService: SkillsService) { }
 
   ngOnInit() {
+    this.skillsService.getSkills().subscribe(skills => {
+      this.skills = skills;
+      this.dataReady = true;
+    });
   }
 
 
@@ -58,22 +35,25 @@ export class SkillsSettingsComponent implements OnInit {
     const value = event.value;
 
     if ((value || '').trim()) {
-      this.technicalSkills.push({ name: value.trim(), rating: 0 });
+      this.skills.technicalSkills.push({ name: value.trim(), rating: 0 });
     }
 
     if (input) {
       input.value = '';
     }
   }
-
-  removeTechnicalSkill(technicalSkill: TechnicalSkill): void {
-    const index = this.technicalSkills.indexOf(technicalSkill);
+  removeTechnicalSkill(technicalSkill: TechnicalSkillEntry): void {
+    const index = this.skills.technicalSkills.indexOf(technicalSkill);
 
     if (index >= 0) {
-      this.technicalSkills.splice(index, 1);
+      this.skills.technicalSkills.splice(index, 1);
     }
   }
-
+  RaiseTechnicalSkill(technicalSkill: TechnicalSkillEntry) {
+    const index = this.skills.technicalSkills.indexOf(technicalSkill);
+    this.skills.technicalSkills[index].rating += 1;
+    console.log(this.skills.technicalSkills);
+  }
 
   addNonTechnicalSkill(event: MatChipInputEvent): void {
     const input = event.input;
@@ -81,7 +61,7 @@ export class SkillsSettingsComponent implements OnInit {
 
     // Add our fruit
     if ((value || '').trim()) {
-      this.nonTechnicalSkills.push({ name: value.trim(), rating: 0 });
+      this.skills.nonTechnicalSkills.push({ name: value.trim(), rating: 0 });
     }
 
     // Reset the input value
@@ -89,15 +69,18 @@ export class SkillsSettingsComponent implements OnInit {
       input.value = '';
     }
   }
-
-  removeNonTechnicalSkill(nonTechnicalSkill: NonTechnicalSkill): void {
-    const index = this.nonTechnicalSkills.indexOf(nonTechnicalSkill);
+  removeNonTechnicalSkill(nonTechnicalSkill: NonTechnicalSkillEntry): void {
+    const index = this.skills.nonTechnicalSkills.indexOf(nonTechnicalSkill);
 
     if (index >= 0) {
-      this.nonTechnicalSkills.splice(index, 1);
+      this.skills.nonTechnicalSkills.splice(index, 1);
     }
   }
-
+  RaiseNonTechnicalSkill(nonTechnicalSkill: NonTechnicalSkillEntry) {
+    const index = this.skills.nonTechnicalSkills.indexOf(nonTechnicalSkill);
+    this.skills.nonTechnicalSkills[index].rating += 1;
+    console.log(this.skills.nonTechnicalSkills);
+  }
 
   addLanguageSkill(event: MatChipInputEvent): void {
     const input = event.input;
@@ -105,7 +88,7 @@ export class SkillsSettingsComponent implements OnInit {
 
     // Add our fruit
     if ((value || '').trim()) {
-      this.languageSkills.push({ name: value.trim(), rating: 0 });
+      this.skills.languageSkills.push({ name: value.trim(), rating: 0 });
     }
 
     // Reset the input value
@@ -113,12 +96,16 @@ export class SkillsSettingsComponent implements OnInit {
       input.value = '';
     }
   }
-
-  removeLanguageSkill(languageSkill: LanguageSkill): void {
-    const index = this.languageSkills.indexOf(languageSkill);
+  removeLanguageSkill(languageSkill: LanguageSkillEntry): void {
+    const index = this.skills.languageSkills.indexOf(languageSkill);
 
     if (index >= 0) {
-      this.languageSkills.splice(index, 1);
+      this.skills.languageSkills.splice(index, 1);
     }
+  }
+  RaiseLanguageSkill(languageSkill: LanguageSkillEntry) {
+    const index = this.skills.languageSkills.indexOf(languageSkill);
+    this.skills.languageSkills[index].rating += 1;
+    console.log(this.skills.languageSkills);
   }
 }

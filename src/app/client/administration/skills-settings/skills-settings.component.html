@@ -1,98 +1,76 @@
-<div class="row">
-  <h5>Technical Skills</h5>
-  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-    <!-- <div class="row">
-      <div class="alert alert-info alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Angular 4</strong>    
+<div *ngIf="dataReady">
+  <div class="row">
+    <h5>Technical Skills</h5>
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+      <div class="row">
+        <mat-form-field style="width: 100%;">
+          <mat-chip-list #technicalSkillsChipList>
+            <span class="skill-chip" *ngFor="let technicalSkill of skills.technicalSkills">
+              <mat-chip color="primary" selected [selectable]="selectable"
+                        [removable]="removable" (removed)="removeTechnicalSkill(technicalSkill)" (click)="RaiseTechnicalSkill(technicalSkill)">
+                {{technicalSkill.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <span matBadge={{technicalSkill?.rating}} matBadgePosition="after" matBadgeColor="accent"></span>
+            </span>
+            <input placeholder="Add Technical Skills"
+                    [matChipInputFor]="technicalSkillsChipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="addTechnicalSkill($event)">
+          </mat-chip-list>
+        </mat-form-field>
       </div>
-    </div>
-      
-    <div class="row">
-      <button type="button" class="btn btn-success" aria-label="Close"><span aria-hidden="true">Add Skill</span></button>
-    </div> -->
-
-    <div class="row">
-      <mat-form-field style="width: 100%;">
-        <mat-chip-list #technicalSkillsChipList>
-          <mat-chip color="accent" selected *ngFor="let technicalSkill of technicalSkills" [selectable]="selectable"
-                   [removable]="removable" (removed)="removeTechnicalSkill(technicalSkill)">
-            {{technicalSkill.name}}
-            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-          </mat-chip>
-          <input placeholder="Add Technical Skills"
-                 [matChipInputFor]="technicalSkillsChipList"
-                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                 [matChipInputAddOnBlur]="addOnBlur"
-                 (matChipInputTokenEnd)="addTechnicalSkill($event)">
-        </mat-chip-list>
-      </mat-form-field>
     </div>
   </div>
-</div>
-<br>
-<div class="row">
-  <h5>Non Technical Skills</h5>
-  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-    <!-- <div class="row">
-      <div class="alert alert-info alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Fast Learner</strong>    
+  <br>
+  <div class="row">
+    <h5>Non Technical Skills</h5>
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+      <div class="row">
+        <mat-form-field style="width: 100%;">
+          <mat-chip-list #nonTechnicalSkillsChipList>
+            <span class="skill-chip" *ngFor="let nonTechnicalSkill of skills.nonTechnicalSkills">
+              <mat-chip color="primary" selected [selectable]="selectable"
+                        [removable]="removable" (removed)="removeNonTechnicalSkill(nonTechnicalSkill)" (click)="RaiseNonTechnicalSkill(nonTechnicalSkill)">
+                {{nonTechnicalSkill.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <span matBadge={{nonTechnicalSkill?.rating}} matBadgePosition="after" matBadgeColor="accent"></span>
+            </span>
+            <input placeholder="Add Non Technical Skills"
+                    [matChipInputFor]="nonTechnicalSkillsChipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="addNonTechnicalSkill($event)">
+          </mat-chip-list>
+        </mat-form-field>
       </div>
-    </div>
-    
-    <div class="row">
-      <button type="button" class="btn btn-success" aria-label="Close"><span aria-hidden="true">Add Skill</span></button>
-    </div> -->
-
-    <div class="row">
-      <mat-form-field style="width: 100%;">
-        <mat-chip-list #nonTechnicalSkillsChipList>
-          <mat-chip color="accent" selected *ngFor="let nonTechnicalSkill of nonTechnicalSkills" [selectable]="selectable"
-                   [removable]="removable" (removed)="removeNonTechnicalSkill(nonTechnicalSkill)">
-            {{nonTechnicalSkill.name}}
-            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-          </mat-chip>
-          <input placeholder="Add Non Technical Skills"
-                 [matChipInputFor]="nonTechnicalSkillsChipList"
-                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                 [matChipInputAddOnBlur]="addOnBlur"
-                 (matChipInputTokenEnd)="addNonTechnicalSkill($event)">
-        </mat-chip-list>
-      </mat-form-field>
     </div>
   </div>
-</div>
-<br>
-<div class="row">
-  <h5>Language Skills</h5>
-  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-    <!-- <div class="row">
-      <div class="alert alert-info alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>English</strong>    
+  <br>
+  <div class="row">
+    <h5>Language Skills</h5>
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+      <div class="row">
+        <mat-form-field style="width: 100%;">
+          <mat-chip-list #languageSkillsChipList>
+            <span class="skill-chip" *ngFor="let languageSkill of skills.languageSkills">
+              <mat-chip color="primary" selected [selectable]="selectable"
+                        [removable]="removable" (removed)="removeLanguageSkill(languageSkill)" (click)="RaiseLanguageSkill(languageSkill)">
+                {{languageSkill.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <span matBadge={{languageSkill?.rating}} matBadgePosition="after" matBadgeColor="accent"></span>
+            </span>
+            <input placeholder="Add Language Skills"
+                    [matChipInputFor]="languageSkillsChipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="addLanguageSkill($event)">
+          </mat-chip-list>
+        </mat-form-field>
       </div>
-    </div>
-    
-    <div class="row">
-      <button type="button" class="btn btn-success" aria-label="Close"><span aria-hidden="true">Add Skill</span></button>
-    </div> -->
-
-    <div class="row">
-      <mat-form-field style="width: 100%;">
-        <mat-chip-list #languageSkillsChipList>
-          <mat-chip color="accent" selected *ngFor="let languageSkill of languageSkills" [selectable]="selectable"
-                   [removable]="removable" (removed)="removeLanguageSkill(languageSkill)">
-            {{languageSkill.name}}
-            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-          </mat-chip>
-          <input placeholder="Add Language Skills"
-                 [matChipInputFor]="languageSkillsChipList"
-                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                 [matChipInputAddOnBlur]="addOnBlur"
-                 (matChipInputTokenEnd)="addLanguageSkill($event)">
-        </mat-chip-list>
-      </mat-form-field>
     </div>
   </div>
 </div>
