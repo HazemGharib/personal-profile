@@ -6,6 +6,7 @@
     </div>
     <mat-spinner *ngIf="!dataReady"></mat-spinner>
     <div *ngIf="dataReady" >
+        <div class="empty-list" *ngIf="experience.workExperience.length == 0">Nothing Left</div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" *ngFor="let item of experience?.workExperience">
             <mat-card class="experience-card">
                 <mat-card-header>
@@ -33,7 +34,6 @@
             </mat-card>            
         </div>
     </div>
-    <div class="empty-list" *ngIf="experience.workExperience.length == 0">Nothing Left</div>
 </div>
 
 <br>
@@ -47,6 +47,7 @@
     </div>
     <mat-spinner *ngIf="!dataReady"></mat-spinner>
     <div *ngIf="dataReady">
+        <div class="empty-list" *ngIf="experience.trainingExperience.length == 0">Nothing Left</div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" *ngFor="let item of experience?.trainingExperience">
             <mat-card class="experience-card">
                 <mat-card-header>
@@ -69,5 +70,4 @@
             </mat-card>            
         </div>
     </div>
-    <div class="empty-list" *ngIf="experience.trainingExperience.length == 0">Nothing Left</div>
 </div>
