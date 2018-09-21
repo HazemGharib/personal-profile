@@ -8,8 +8,8 @@ export interface Contact {
 }
 
 export interface Address {
-    Line1: string;
-    Line2: string;
+    line1: string;
+    line2: string;
     state: string;
     country: string;
 }
