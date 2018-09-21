@@ -29,7 +29,6 @@ export class SkillsSettingsComponent implements OnInit {
     });
   }
 
-
   addTechnicalSkill(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
@@ -51,8 +50,11 @@ export class SkillsSettingsComponent implements OnInit {
   }
   RaiseTechnicalSkill(technicalSkill: TechnicalSkillEntry) {
     const index = this.skills.technicalSkills.indexOf(technicalSkill);
-    this.skills.technicalSkills[index].rating += 1;
-    console.log(this.skills.technicalSkills);
+    if (this.skills.technicalSkills[index].rating + 1 > 10) {
+      this.skills.technicalSkills[index].rating = 10;
+    } else {
+      this.skills.technicalSkills[index].rating += 1;
+    }
   }
 
   addNonTechnicalSkill(event: MatChipInputEvent): void {
@@ -78,8 +80,11 @@ export class SkillsSettingsComponent implements OnInit {
   }
   RaiseNonTechnicalSkill(nonTechnicalSkill: NonTechnicalSkillEntry) {
     const index = this.skills.nonTechnicalSkills.indexOf(nonTechnicalSkill);
-    this.skills.nonTechnicalSkills[index].rating += 1;
-    console.log(this.skills.nonTechnicalSkills);
+    if (this.skills.nonTechnicalSkills[index].rating + 1 > 10) {
+      this.skills.nonTechnicalSkills[index].rating = 10;
+    } else {
+      this.skills.nonTechnicalSkills[index].rating += 1;
+    }
   }
 
   addLanguageSkill(event: MatChipInputEvent): void {
@@ -105,7 +110,10 @@ export class SkillsSettingsComponent implements OnInit {
   }
   RaiseLanguageSkill(languageSkill: LanguageSkillEntry) {
     const index = this.skills.languageSkills.indexOf(languageSkill);
-    this.skills.languageSkills[index].rating += 1;
-    console.log(this.skills.languageSkills);
+    if (this.skills.languageSkills[index].rating + 1 > 10) {
+      this.skills.languageSkills[index].rating = 10;
+    } else {
+      this.skills.languageSkills[index].rating += 1;
+    }
   }
 }
