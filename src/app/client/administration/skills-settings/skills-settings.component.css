@@ -1,3 +1,6 @@
 .skill-chip{
     margin-right: 10px;
 }
+.skill-chip mat-chip{
+    cursor: pointer;
+}
