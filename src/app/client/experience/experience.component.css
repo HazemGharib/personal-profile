@@ -9,11 +9,11 @@ mat-card-content img{
 }
 
 mat-card.experience-card.mat-card.work-card{
-    height: 700px;
+    height: fit-content;
 }
 
 mat-card.experience-card.mat-card.training-card{
-    height: 350px;
+    height: fit-content;
 }
 
 .col-xs-4.col-sm-4.col-md-4.col-lg-4 {
