@@ -21,7 +21,7 @@ export class SkillsSettingsComponent implements OnInit {
   skills: Skills;
 
   @Output()
-  change: EventEmitter<Skills> = new EventEmitter<Skills>();
+  valueChange: EventEmitter<Skills> = new EventEmitter<Skills>();
 
   constructor(private skillsService: SkillsService) { }
 
@@ -38,7 +38,7 @@ export class SkillsSettingsComponent implements OnInit {
 
     if ((value || '').trim()) {
       this.skills.technicalSkills.push({ name: value.trim(), rating: 0 });
-      this.change.emit(this.skills);
+      this.valueChange.emit(this.skills);
     }
 
     if (input) {
@@ -50,7 +50,7 @@ export class SkillsSettingsComponent implements OnInit {
 
     if (index >= 0) {
       this.skills.technicalSkills.splice(index, 1);
-      this.change.emit(this.skills);
+      this.valueChange.emit(this.skills);
     }
   }
   RaiseTechnicalSkill(technicalSkill: TechnicalSkillEntry) {
@@ -60,7 +60,7 @@ export class SkillsSettingsComponent implements OnInit {
     } else {
       this.skills.technicalSkills[index].rating += 1;
     }
-    this.change.emit(this.skills);
+    this.valueChange.emit(this.skills);
   }
 
   addNonTechnicalSkill(event: MatChipInputEvent): void {
@@ -70,7 +70,7 @@ export class SkillsSettingsComponent implements OnInit {
     // Add our fruit
     if ((value || '').trim()) {
       this.skills.nonTechnicalSkills.push({ name: value.trim(), rating: 0 });
-      this.change.emit(this.skills);
+      this.valueChange.emit(this.skills);
     }
 
     // Reset the input value
@@ -83,7 +83,7 @@ export class SkillsSettingsComponent implements OnInit {
 
     if (index >= 0) {
       this.skills.nonTechnicalSkills.splice(index, 1);
-      this.change.emit(this.skills);
+      this.valueChange.emit(this.skills);
     }
   }
   RaiseNonTechnicalSkill(nonTechnicalSkill: NonTechnicalSkillEntry) {
@@ -93,7 +93,7 @@ export class SkillsSettingsComponent implements OnInit {
     } else {
       this.skills.nonTechnicalSkills[index].rating += 1;
     }
-    this.change.emit(this.skills);
+    this.valueChange.emit(this.skills);
   }
 
   addLanguageSkill(event: MatChipInputEvent): void {
@@ -103,7 +103,7 @@ export class SkillsSettingsComponent implements OnInit {
     // Add our fruit
     if ((value || '').trim()) {
       this.skills.languageSkills.push({ name: value.trim(), rating: 0 });
-      this.change.emit(this.skills);
+      this.valueChange.emit(this.skills);
     }
 
     // Reset the input value
@@ -116,7 +116,7 @@ export class SkillsSettingsComponent implements OnInit {
 
     if (index >= 0) {
       this.skills.languageSkills.splice(index, 1);
-      this.change.emit(this.skills);
+      this.valueChange.emit(this.skills);
     }
   }
   RaiseLanguageSkill(languageSkill: LanguageSkillEntry) {
@@ -126,6 +126,6 @@ export class SkillsSettingsComponent implements OnInit {
     } else {
       this.skills.languageSkills[index].rating += 1;
     }
-    this.change.emit(this.skills);
+    this.valueChange.emit(this.skills);
   }
 }

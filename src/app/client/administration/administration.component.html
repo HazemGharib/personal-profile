@@ -8,7 +8,7 @@
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Profile</ng-template>
         
-        <app-profile-settings (change)="onProfileChange($event)"></app-profile-settings>
+        <app-profile-settings (valueChange)="onProfileChange($event)"></app-profile-settings>
         
         <div class="form-button-group">
           <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i>Next</button>
@@ -20,7 +20,7 @@
       <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Contact</ng-template>
       
-        <app-contact-settings (change)="onContactChange($event)"></app-contact-settings>
+        <app-contact-settings (valueChange)="onContactChange($event)"></app-contact-settings>
         
         <div class="form-button-group">
           <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>
@@ -33,7 +33,7 @@
       <form [formGroup]="thirdFormGroup">
         <ng-template matStepLabel>Previous Experience</ng-template>
 
-        <app-experience-settings (change)="onExperienceChange($event)"></app-experience-settings>
+        <app-experience-settings (valueChange)="onExperienceChange($event)"></app-experience-settings>
 
         <div class="form-button-group">
           <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>
@@ -46,7 +46,7 @@
       <form [formGroup]="fourthFormGroup">
         <ng-template matStepLabel>Skills</ng-template>
         
-        <app-skills-settings (change)="onSkillsChange($event)"></app-skills-settings>
+        <app-skills-settings (valueChange)="onSkillsChange($event)"></app-skills-settings>
 
         <div class="form-button-group">
           <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>

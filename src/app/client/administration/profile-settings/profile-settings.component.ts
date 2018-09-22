@@ -9,7 +9,7 @@ import { Profile } from './../../profile/profile';
 export class ProfileSettingsComponent implements OnInit {
 
   @Output()
-  change: EventEmitter<Profile> = new EventEmitter<Profile>();
+  valueChange: EventEmitter<Profile> = new EventEmitter<Profile>();
 
   countriesList: any[] = [
     {'id':  1, 'name': 'Egypt'},

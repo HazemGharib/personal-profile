@@ -60,9 +60,9 @@ export class AdministrationComponent implements OnInit {
 
   saveChanges() {
     console.log('Data Saved');
-    if (this.profile !== undefined) { console.log(this.profile); }
-    if (this.contact !== undefined) { console.log(this.contact); }
-    if (this.experience !== undefined) { console.log(this.experience); }
-    if (this.skills !== undefined) { console.log(this.skills); }
+    if (typeof(this.profile) !== 'undefined') { console.log(this.profile); }
+    if (typeof(this.contact) !== 'undefined') { console.log(this.contact); }
+    if (typeof(this.experience) !== 'undefined') { console.log(this.experience); }
+    if (typeof(this.skills) !== 'undefined') { console.log(this.skills); }
   }
 }
