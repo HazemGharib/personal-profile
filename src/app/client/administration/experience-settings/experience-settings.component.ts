@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { WorkExperienceDialogComponent } from './dialogs/work-experience-dialog.component';
 import { TrainingExperienceDialogComponent } from './dialogs/training-experience-dialog.component';
@@ -14,6 +14,9 @@ export class ExperienceSettingsComponent implements OnInit {
 
     dataReady: boolean;
     experience: Experience;
+
+    @Output()
+    change: EventEmitter<Experience> = new EventEmitter<Experience>();
 
     constructor(private experienceService: ExperienceService, public workDialog: MatDialog, public trainingDialog: MatDialog) { }
 

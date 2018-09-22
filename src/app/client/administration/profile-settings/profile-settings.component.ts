@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Profile } from './../../profile/profile';
 
 @Component({
   selector: 'app-profile-settings',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-settings.component.css']
 })
 export class ProfileSettingsComponent implements OnInit {
+
+  @Output()
+  change: EventEmitter<Profile> = new EventEmitter<Profile>();
 
   countriesList: any[] = [
     {'id':  1, 'name': 'Egypt'},

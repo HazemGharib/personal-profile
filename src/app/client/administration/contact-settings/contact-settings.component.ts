@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { ContactService } from './../../contact/contact.service';
 import { Contact } from '../../contact/contact';
@@ -11,6 +11,9 @@ import { Contact } from '../../contact/contact';
 export class ContactSettingsComponent implements OnInit {
   dataReady: boolean;
   contact: Contact;
+
+  @Output()
+  change: EventEmitter<Contact> = new EventEmitter<Contact>();
 
   email: FormControl;
   phoneNumber: FormControl;
