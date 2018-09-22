@@ -1,44 +1,6 @@
 <h2>Administration</h2>
-<button class="save-button" mat-raised-button color="primary"><i class="button-icon far fa-save"></i>Save Profile</button>
+<button class="save-button" mat-raised-button color="primary" (click)="saveChanges()"><i class="button-icon far fa-save"></i>Save Profile</button>
 <div class="line"></div>
-
-<!-- <div class="row">
-  <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-      <h2>Profile</h2>
-      <br>
-      <app-profile-settings></app-profile-settings>
-  </div>
-  
-  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-    
-  </div> 
-  
-  <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-    <h2>Contact</h2>
-    <br>
-    <app-contact-settings></app-contact-settings>
-  </div>
-</div>
-
-<div class="line"></div>
-
-<div class="row">
-  <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-      <h2>Previous Experience</h2>
-      <br>
-      <app-experience-settings></app-experience-settings>
-  </div>
-  
-  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-    
-  </div> 
-  
-  <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-    <h2>Skills</h2>
-    <br>
-    <app-skills-settings></app-skills-settings>
-  </div>
-</div> -->
 
 <div class="row">
   <mat-horizontal-stepper #stepper>
@@ -46,7 +8,7 @@
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Profile</ng-template>
         
-        <app-profile-settings></app-profile-settings>
+        <app-profile-settings (change)="onProfileChange($event)"></app-profile-settings>
         
         <div class="form-button-group">
           <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i>Next</button>
@@ -58,7 +20,7 @@
       <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Contact</ng-template>
       
-        <app-contact-settings></app-contact-settings>
+        <app-contact-settings (change)="onContactChange($event)"></app-contact-settings>
         
         <div class="form-button-group">
           <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>
@@ -71,7 +33,7 @@
       <form [formGroup]="thirdFormGroup">
         <ng-template matStepLabel>Previous Experience</ng-template>
 
-        <app-experience-settings></app-experience-settings>
+        <app-experience-settings (change)="onExperienceChange($event)"></app-experience-settings>
 
         <div class="form-button-group">
           <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>
@@ -84,7 +46,7 @@
       <form [formGroup]="fourthFormGroup">
         <ng-template matStepLabel>Skills</ng-template>
         
-        <app-skills-settings></app-skills-settings>
+        <app-skills-settings (change)="onSkillsChange($event)"></app-skills-settings>
 
         <div class="form-button-group">
           <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>

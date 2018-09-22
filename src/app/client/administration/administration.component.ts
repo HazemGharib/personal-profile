@@ -3,6 +3,11 @@ import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { OktaAuthService } from '@okta/okta-angular';
 
+import { Profile } from '../profile/profile';
+import { Contact } from '../contact/contact';
+import { Experience } from './../experience/experience';
+import { Skills } from '../skills/skills';
+
 @Component({
   selector: 'app-administration',
   templateUrl: './administration.component.html',
@@ -14,6 +19,11 @@ export class AdministrationComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
+
+  profile: Profile;
+  contact: Contact;
+  experience: Experience;
+  skills: Skills;
 
   constructor(private _formBuilder: FormBuilder, private oktaAuth: OktaAuthService) { }
 
@@ -32,4 +42,27 @@ export class AdministrationComponent implements OnInit {
     });
   }
 
+  onProfileChange(data) {
+    this.profile = data;
+  }
+
+  onContactChange(data) {
+    this.contact = data;
+  }
+
+  onExperienceChange(data) {
+    this.experience = data;
+  }
+
+  onSkillsChange(data) {
+    this.skills = data;
+  }
+
+  saveChanges() {
+    console.log('Data Saved');
+    if (this.profile !== undefined) { console.log(this.profile); }
+    if (this.contact !== undefined) { console.log(this.contact); }
+    if (this.experience !== undefined) { console.log(this.experience); }
+    if (this.skills !== undefined) { console.log(this.skills); }
+  }
 }
