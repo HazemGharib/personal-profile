@@ -27,7 +27,6 @@ export class ContactSettingsComponent implements OnInit {
 
   onContactChange() {
     this.valueChange.emit(this.contact);
-    console.log(this.contact);
   }
 
   getErrorMessage(control) {
