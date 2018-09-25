@@ -7,3 +7,8 @@ h5{
     font-weight: lighter;
     font-size: small;
 }
+
+mat-spinner{
+    margin: auto;
+    display: block;
+}

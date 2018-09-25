@@ -32,3 +32,8 @@ h5{
     padding: 5% 20%;
     border-radius: 65px;
 }
+
+mat-spinner{
+    margin: auto;
+    display: block;
+}

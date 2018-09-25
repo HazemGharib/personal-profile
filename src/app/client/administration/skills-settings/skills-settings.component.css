@@ -9,3 +9,8 @@ h5{
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
 }
+
+mat-spinner{
+    margin: auto;
+    display: block;
+}
