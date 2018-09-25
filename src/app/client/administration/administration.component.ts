@@ -25,6 +25,8 @@ export class AdministrationComponent implements OnInit {
   experience: Experience;
   skills: Skills;
 
+  updatesSummary: any[];
+
   constructor(private _formBuilder: FormBuilder, private oktaAuth: OktaAuthService) { }
 
    ngOnInit() {
@@ -64,5 +66,17 @@ export class AdministrationComponent implements OnInit {
     if (typeof(this.contact) !== 'undefined') { console.log(this.contact); }
     if (typeof(this.experience) !== 'undefined') { console.log(this.experience); }
     if (typeof(this.skills) !== 'undefined') { console.log(this.skills); }
+  }
+  getUpdatesSummary($event) {
+    if ($event.selectedIndex === 4) {
+      this.updatesSummary = [];
+
+      if (typeof(this.profile) !== 'undefined') { this.updatesSummary.push(this.profile); }
+      if (typeof(this.contact) !== 'undefined') { this.updatesSummary.push(this.contact); }
+      if (typeof(this.experience) !== 'undefined') { this.updatesSummary.push(this.experience); }
+      if (typeof(this.skills) !== 'undefined') { this.updatesSummary.push(this.skills); }
+
+      console.log(this.updatesSummary);
+    }
   }
 }
