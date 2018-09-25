@@ -1,3 +1,4 @@
+import { ProfileService } from './../profile/profile.service';
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from './contact.service';
 import { Contact } from './contact';
@@ -12,13 +13,31 @@ export class ContactComponent implements OnInit {
 
   dataReady: boolean;
   contact: Contact;
+  contactCardHeader: { profileHeadName: string; profileCurrentTitle: string; };
 
-  constructor(private contactService: ContactService) { }
+  constructor(private contactService: ContactService, private profileService: ProfileService) { }
 
   ngOnInit() {
     this.contactService.getContact().subscribe(contact => {
       this.contact = contact;
-      this.dataReady = true;
+
+      if (this.contactCardHeader === undefined || this.contactCardHeader === null) {
+        this.profileService.getProfile().subscribe((profile) => {
+          this.contactCardHeader = {
+            profileHeadName: profile.profileHeadName,
+            profileCurrentTitle: profile.profileCurrentTitle
+          };
+
+          this.dataReady = true;
+        });
+      } else {
+        this.contactCardHeader = {
+          profileHeadName: localStorage.getItem('profileHeadName'),
+          profileCurrentTitle: localStorage.getItem('profileCurrentTitle')
+        };
+
+        this.dataReady = true;
+      }
     });
   }
 
