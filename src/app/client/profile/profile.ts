@@ -1,9 +1,13 @@
 export interface Profile {
-    profileImage: String;
+    profileImage: string;
+    profileHeadName: string;
+    profileCurrentTitle: string;
+    nationality: string;
+    dateOfBirth: Date;
     profileSections: [
         {
-            sectionName: String;
-            sectionContent: String;
+            sectionName: string;
+            sectionContent: string;
         }
     ];
 }
