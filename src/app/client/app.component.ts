@@ -1,5 +1,7 @@
+import { ProfileService } from './profile/profile.service';
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +9,9 @@ import { OktaAuthService } from '@okta/okta-angular';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'portfolio';
-
   isAuthenticated: boolean;
 
-  constructor(public oktaAuth: OktaAuthService) {
+  constructor(private titleService: Title, public oktaAuth: OktaAuthService, private profileService: ProfileService) {
     // Subscribe to authentication state changes
     this.oktaAuth.$authenticationState.subscribe(
       (isAuthenticated: boolean)  => this.isAuthenticated = isAuthenticated
@@ -19,6 +19,13 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.profileService.getProfile().subscribe((result) => {
+      localStorage.setItem('profileHeadName', result.profileHeadName);
+      localStorage.setItem('profileCurrentTitle', result.profileCurrentTitle);
+      localStorage.setItem('profileImage', result.profileImage);
+      this.titleService.setTitle(result.profileHeadName);
+    });
+
     // Get the authentication state for immediate use
     this.isLoggedIn();
   }
@@ -31,7 +38,7 @@ export class AppComponent implements OnInit {
   }
 
   login() {
-    this.oktaAuth.loginRedirect('/profile');
+    this.oktaAuth.loginRedirect('/administration');
   }
 
   logout() {
