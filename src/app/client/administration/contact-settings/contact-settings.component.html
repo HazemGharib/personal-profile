@@ -3,15 +3,15 @@
     
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
       <mat-form-field class="contact-entry">
-        <input matInput placeholder="Email" [formControl]="email" required>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        <input matInput placeholder="Email" type="text" [(ngModel)]="contact.email" (change)="onContactChange()" required>
+        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage('email')}}</mat-error> -->
       </mat-form-field>
     </div>
     
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
       <mat-form-field class="contact-entry">
-        <input matInput placeholder="Phone Number" type="text" [formControl]="phoneNumber" required>
-        <mat-error *ngIf="phoneNumber.invalid">{{getErrorMessage()}}</mat-error>
+        <input matInput placeholder="Phone Number" type="text" [(ngModel)]="contact.mobile" (change)="onContactChange()" required>
+        <!-- <mat-error *ngIf="phoneNumber.invalid">{{getErrorMessage('phoneNumber')}}</mat-error> -->
       </mat-form-field>
     </div>
   
@@ -22,15 +22,15 @@
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <mat-form-field class="contact-entry">
-          <input matInput placeholder="Country" type="text" [formControl]="country" required>
-          <mat-error *ngIf="country.invalid">{{getErrorMessage()}}</mat-error>
+          <input matInput placeholder="Country" type="text" [(ngModel)]="contact.currentAddress.country" (change)="onContactChange()" required>
+          <!-- <mat-error *ngIf="country.invalid">{{getErrorMessage('country')}}</mat-error> -->
         </mat-form-field>
       </div>
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <mat-form-field class="contact-entry">
-          <input matInput placeholder="State" type="text" [formControl]="state" required>
-          <mat-error *ngIf="state.invalid">{{getErrorMessage()}}</mat-error>
+          <input matInput placeholder="State" type="text" [(ngModel)]="contact.currentAddress.state" (change)="onContactChange()" required>
+          <!-- <mat-error *ngIf="state.invalid">{{getErrorMessage('state')}}</mat-error> -->
         </mat-form-field>
       </div>
     </div>
@@ -39,15 +39,15 @@
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <mat-form-field class="contact-entry">
-          <input matInput placeholder="Line 1" type="text" [formControl]="line1" required>
-          <mat-error *ngIf="line1.invalid">{{getErrorMessage()}}</mat-error>
+          <input matInput placeholder="Line 1" type="text" [(ngModel)]="contact.currentAddress.line1" (change)="onContactChange()">
+          <!-- <mat-error *ngIf="line1.invalid">{{getErrorMessage('line1')}}</mat-error> -->
         </mat-form-field>
       </div>
 
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <mat-form-field class="contact-entry">
-          <input matInput placeholder="Line 2" type="text" [formControl]="line2" required>
-          <mat-error *ngIf="line2.invalid">{{getErrorMessage()}}</mat-error>
+          <input matInput placeholder="Line 2" type="text" [(ngModel)]="contact.currentAddress.line2" (change)="onContactChange()">
+          <!-- <mat-error *ngIf="line2.invalid">{{getErrorMessage('line2')}}</mat-error> -->
         </mat-form-field>
       </div>
 
@@ -56,22 +56,22 @@
   <br>
   <div class="">
     <mat-form-field class="contact-entry">
-      <input matInput placeholder="LinkidIn profile" type="text" [formControl]="facebookProfile" required>
-      <mat-error *ngIf="facebookProfile.invalid">{{getErrorMessage()}}</mat-error>
+      <input matInput placeholder="LinkidIn profile" type="text" [(ngModel)]="contact.linkedinAccount" (change)="onContactChange()" required>
+      <!-- <mat-error *ngIf="linkedinProfile.invalid">{{getErrorMessage('linkedinProfile')}}</mat-error> -->
     </mat-form-field>
   </div>
   <br>
   <div class="">
     <mat-form-field class="contact-entry">
-      <input matInput placeholder="GitHub Profile" type="text" [formControl]="linkedinProfile" required>
-      <mat-error *ngIf="linkedinProfile.invalid">{{getErrorMessage()}}</mat-error>
+      <input matInput placeholder="GitHub Profile" type="text" [(ngModel)]="contact.githubAccount" (change)="onContactChange()" required>
+      <!-- <mat-error *ngIf="githubProfile.invalid">{{getErrorMessage('githubProfile')}}</mat-error> -->
     </mat-form-field>
   </div>
   <br>
   <div class="">
     <mat-form-field class="contact-entry">
-      <input matInput placeholder="Facebook Profile" type="text" [formControl]="githubProfile" required>
-      <mat-error *ngIf="githubProfile.invalid">{{getErrorMessage()}}</mat-error>
+      <input matInput placeholder="Facebook Profile" [(ngModel)]="contact.facebookAccount" (change)="onContactChange()" type="text" required>
+      <!-- <mat-error *ngIf="facebookProfile.invalid">{{getErrorMessage('facebookProfile')}}</mat-error> -->
     </mat-form-field>
   </div>
 </div>

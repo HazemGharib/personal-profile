@@ -13,32 +13,11 @@ export class ContactSettingsComponent implements OnInit {
   contact: Contact;
 
   @Output()
-  change: EventEmitter<Contact> = new EventEmitter<Contact>();
-
-  email: FormControl;
-  phoneNumber: FormControl;
-  country: FormControl;
-  state: FormControl;
-  line1: FormControl;
-  line2: FormControl;
-  facebookProfile: FormControl;
-  linkedinProfile: FormControl;
-  githubProfile: FormControl;
-
+  valueChange: EventEmitter<Contact> = new EventEmitter<Contact>();
 
   constructor(private contactService: ContactService) {
     this.contactService.getContact().subscribe(contact => {
       this.contact = contact;
-      this.email = new FormControl(this.contact.email, [Validators.required, Validators.email]);
-      this.phoneNumber = new FormControl(this.contact.mobile, Validators.required);
-      this.country = new FormControl(this.contact.currentAddress.country, Validators.required);
-      this.state = new FormControl(this.contact.currentAddress.state, Validators.required);
-      this.line1 = new FormControl(this.contact.currentAddress.line1, Validators.required);
-      this.line2 = new FormControl(this.contact.currentAddress.line2, Validators.required);
-      this.facebookProfile = new FormControl(this.contact.facebookAccount, Validators.required);
-      this.linkedinProfile = new FormControl(this.contact.linkedinAccount, Validators.required);
-      this.githubProfile = new FormControl(this.contact.githubAccount, Validators.required);
-
       this.dataReady = true;
     });
   }
@@ -46,8 +25,51 @@ export class ContactSettingsComponent implements OnInit {
   ngOnInit() {
   }
 
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-      this.email.hasError('email') ? 'Not a valid email' : '';
+  onContactChange() {
+    this.valueChange.emit(this.contact);
+    console.log(this.contact);
+  }
+
+  getErrorMessage(control) {
+    // switch (control) {
+    //   case 'email':
+    //     return this.email.hasError('required') ?
+    //       'You must enter a value' :
+    //       this.email.hasError('email') ?
+    //         'Not a valid email' :
+    //         '';
+    //   case 'phoneNumber':
+    //     return this.phoneNumber.hasError('required') ?
+    //       'You must enter a value' :
+    //       this.phoneNumber.hasError('minlength') ?
+    //         'Not a valid phone number' :
+    //         '';
+    //   case 'country':
+    //     return this.country.hasError('required') ?
+    //       'You must enter a value' :
+    //       '';
+    //   case 'state':
+    //     return this.state.hasError('required') ?
+    //       'You must enter a value' :
+    //       '';
+    //   case 'line1':
+    //     return '';
+    //   case 'line2':
+    //     return '';
+    //   case 'facebookProfile':
+    //     return this.facebookProfile.hasError('required') ?
+    //       'You must enter a value' :
+    //       '';
+    //   case 'linkedinProfile':
+    //     return this.linkedinProfile.hasError('required') ?
+    //       'You must enter a value' :
+    //       '';
+    //   case 'githubProfile':
+    //     return this.githubProfile.hasError('required') ?
+    //       'You must enter a value' :
+    //       '';
+    //   default:
+    //     break;
+    // }
   }
 }
