@@ -1,3 +1,4 @@
+import { ProfileService } from './../../profile/profile.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Profile } from './../../profile/profile';
 
@@ -12,22 +13,28 @@ export class ProfileSettingsComponent implements OnInit {
   valueChange: EventEmitter<Profile> = new EventEmitter<Profile>();
 
   countriesList: any[] = [
-    {'id':  1, 'name': 'Egypt'},
-    {'id':  2, 'name': 'Malaysia'},
-    {'id':  3, 'name': 'England'},
-    {'id':  4, 'name': 'Netherlands'},
-    {'id':  5, 'name': 'Germany'},
-    {'id':  6, 'name': 'Switzerland'},
-    {'id':  7, 'name': 'Canada'},
-    {'id':  8, 'name': 'United States'},
-    {'id':  9, 'name': 'Singapore'},
-    {'id': 10, 'name': 'Australia'},
-    {'id': 11, 'name': 'United Arab Emirates'},
+    {'id':  1, 'name': 'Egypt', 'nationality': 'Egyptian'},
+    {'id':  2, 'name': 'Malaysia', 'nationality': 'Malaysian'},
+    {'id':  3, 'name': 'England', 'nationality': 'English'},
+    {'id':  4, 'name': 'Netherlands', 'nationality': 'Dutch'},
+    {'id':  5, 'name': 'Germany', 'nationality': 'German'},
+    {'id':  6, 'name': 'Switzerland', 'nationality': 'Swiss'},
+    {'id':  7, 'name': 'Canada', 'nationality': 'Canadian'},
+    {'id':  8, 'name': 'United States', 'nationality': 'American'},
+    {'id':  9, 'name': 'Singapore', 'nationality': 'Singaporian'},
+    {'id': 10, 'name': 'Australia', 'nationality': 'Australian'},
+    {'id': 11, 'name': 'United Arab Emirates', 'nationality': 'Emirati'},
   ];
+  profile: Profile;
+  dataReady: boolean;
 
-  constructor() { }
+  constructor(private profileService: ProfileService) { }
 
   ngOnInit() {
+    this.profileService.getProfile().subscribe((profile) => {
+      this.profile = profile;
+      this.dataReady = true;
+    });
   }
 
 }

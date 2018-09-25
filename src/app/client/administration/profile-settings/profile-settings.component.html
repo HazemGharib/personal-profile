@@ -1,34 +1,36 @@
-<div class="row">
-  <h5>Profile Image</h5>
-  <input type="file" class="form-control-file">
-</div>
-<br>
-<div class="row">
-  <mat-form-field class="profile-entry">
-    <textarea matInput placeholder="Summary"></textarea>
-  </mat-form-field>
-</div>
-<br>
-<div class="row">
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <mat-form-field class="profile-entry">
-        <input matInput [matDatepicker]="dob" placeholder="Date of birth" disabled>
-        <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
-        <mat-datepicker #dob disabled="false"></mat-datepicker>
-      </mat-form-field>
-    </div>  
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      <mat-form-field class="profile-entry">
-        <mat-select placeholder="Nationality">
-          <mat-option *ngFor="let country of countriesList" [value]="country?.id">{{country?.name}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>  
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">      
-      <mat-form-field class="profile-entry">
-        <mat-select placeholder="Current Location">
-          <mat-option *ngFor="let country of countriesList" [value]="country?.id">{{country?.name}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+<div *ngIf="dataReady">
+  <div class="row">
+    <h5>Profile Image</h5>
+    <input type="file" class="form-control-file">
+  </div>
+  <br>
+  <div *ngFor="let item of profile.profileSections" class="row">
+    <mat-form-field class="profile-entry">
+      <textarea matInput rows="4" placeholder="{{item.sectionName}}" value="{{item.sectionContent}}"></textarea>
+    </mat-form-field>
+  </div>
+  <br>
+  <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <mat-form-field class="profile-entry">
+          <input matInput [(ngModel)]="profile.dateOfBirth" [matDatepicker]="dob" placeholder="Date of birth" disabled>
+          <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+          <mat-datepicker #dob disabled="false"></mat-datepicker>
+        </mat-form-field>
+      </div>  
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <mat-form-field class="profile-entry">
+          <mat-select [(value)]="profile.nationality" placeholder="Nationality">
+            <mat-option *ngFor="let country of countriesList" [value]="country.nationality">{{country?.nationality}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>  
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <mat-form-field class="profile-entry">
+          <mat-select [(value)]="profile.nationality" placeholder="Current Location">
+            <mat-option *ngFor="let country of countriesList" [value]="country.nationality">{{country?.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  </div>
 </div>
