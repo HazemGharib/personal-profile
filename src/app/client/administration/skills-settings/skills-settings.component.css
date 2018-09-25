@@ -4,3 +4,8 @@
 .skill-chip mat-chip{
     cursor: pointer;
 }
+
+h5{
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
