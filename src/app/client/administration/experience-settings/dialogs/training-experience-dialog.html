@@ -2,29 +2,29 @@
 <div mat-dialog-content>
   <p>Please enter a new training experience entry</p>
   <mat-form-field>
-    <input matInput [(ngModel)]="data.organizationName" placeholder="Organization">
+    <input matInput [(ngModel)]="data[0].organizationName" placeholder="Organization">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [(ngModel)]="data.organizationLogo" placeholder="Organization Logo URL">
+    <input matInput [(ngModel)]="data[0].organizationLogo" placeholder="Organization Logo URL">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [(ngModel)]="data.field" placeholder="Field">
+    <input matInput [(ngModel)]="data[0].field" placeholder="Field">
   </mat-form-field>
  
   <mat-form-field class="date">
-      <input matInput [(ngModel)]="data.startDate" [matDatepicker]="startDate" placeholder="Choose a start date" disabled>
+      <input matInput [(ngModel)]="data[0].startDate" [matDatepicker]="startDate" placeholder="Choose a start date" disabled>
       <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
       <mat-datepicker #startDate disabled="false"></mat-datepicker>
     </mat-form-field>
   <mat-form-field class="date">
-    <input matInput [(ngModel)]="data.endDate" [matDatepicker]="endDate" placeholder="Choose an end date" disabled>
+    <input matInput [(ngModel)]="data[0].endDate" [matDatepicker]="endDate" placeholder="Choose an end date" disabled>
     <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
     <mat-datepicker #endDate disabled="false"></mat-datepicker>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  <button *ngIf="!data[1].isUpdating" mat-button (click)="onNoClick()">No Thanks</button>
+  <button *ngIf="!data[1].isUpdating" mat-button [mat-dialog-close]="data[0]" cdkFocusInitial>Ok</button>
 </div>
