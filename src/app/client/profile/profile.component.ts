@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from './profile.service';
+import { Profile } from './profile';
 
 @Component({
   selector: 'app-profile',
@@ -9,7 +10,7 @@ import { ProfileService } from './profile.service';
 export class ProfileComponent implements OnInit {
 
   dataReady: boolean;
-  profile: any;
+  profile: Profile;
 
   constructor(private profileService: ProfileService) { }
 

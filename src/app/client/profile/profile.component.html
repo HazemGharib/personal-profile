@@ -9,10 +9,12 @@
     <br/>
     <h2 class="profile-heading">{{profile?.profileHeadName}}</h2>
     <p class="profile-subtitle">{{profile?.profileCurrentTitle}}</p>
-    <p class="profile-subtitle">{{profile?.nationality}}</p>
+    <p class="profile-subtitle">{{profile?.nationality}} - {{profile?.dateOfBirth | date: 'dd/MM/yyyy'}}</p>
+    <p class="profile-subtitle" *ngIf="profile.profileHeadLine.length > 0">{{profile?.profileHeadLine}}</p>
     <div *ngFor="let item of profile.profileSections">
       <hr class="hr-text" title={{item.sectionName}}>
-      <div [innerHTML]="item?.sectionContent">
+      <div class="profile-section">
+        <p [innerHTML]="item?.sectionContent"></p>
       </div>
     </div>
   </div>
