@@ -1,5 +1,5 @@
-.profile-entry{
-    width: 100%;
+.profile-entry, .add-section mat-form-field{
+    width: 80%;
 }
 
 h5{
@@ -11,4 +11,16 @@ h5{
 mat-spinner{
     margin: auto;
     display: block;
+}
+
+.remove-button, .add-button{
+    float: right;
+}
+
+.profile-section{
+    margin-bottom: 20px;
+}
+
+.add-section{
+    margin-bottom: 45px;
 }

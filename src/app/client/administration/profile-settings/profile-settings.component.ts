@@ -25,6 +25,7 @@ export class ProfileSettingsComponent implements OnInit {
     {'id': 10, 'name': 'Australia', 'nationality': 'Australian'},
     {'id': 11, 'name': 'United Arab Emirates', 'nationality': 'Emirati'},
   ];
+  sectionName: string;
   profile: Profile;
   dataReady: boolean;
 
@@ -35,6 +36,21 @@ export class ProfileSettingsComponent implements OnInit {
       this.profile = profile;
       this.dataReady = true;
     });
+  }
+
+  addSection() {
+    if (this.sectionName.length > 0) {
+      this.profile.profileSections.push({ sectionName: this.sectionName, sectionContent: '' });
+      this.sectionName = '';
+      this.valueChange.emit(this.profile);
+    }
+  }
+
+  removeSection(section) {
+    if (section) {
+        this.profile.profileSections.splice(this.profile.profileSections.indexOf(section), 1);
+        this.valueChange.emit(this.profile);
+    }
   }
 
 }

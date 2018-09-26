@@ -5,10 +5,19 @@
     <input type="file" class="form-control-file">
   </div>
   <br>
-  <div *ngFor="let item of profile.profileSections" class="row">
-    <mat-form-field class="profile-entry">
-      <textarea matInput rows="4" placeholder="{{item.sectionName}}" value="{{item.sectionContent}}"></textarea>
-    </mat-form-field>
+  <div class="row">
+    <div class="add-section">
+      <mat-form-field>
+        <input matInput placeholder="Section Name" type="text" [(ngModel)]="sectionName"/>
+      </mat-form-field>
+      <button class="form-buttons add-button" (click)="addSection()" mat-fab mat-raised-button color="accent"><i class="fas fa-plus"></i></button>    
+    </div>
+    <div class="profile-section" *ngFor="let item of profile.profileSections">
+      <mat-form-field class="profile-entry">
+        <textarea matInput rows="4" placeholder="{{item.sectionName}}" value="{{item.sectionContent}}"></textarea>
+      </mat-form-field>
+      <button class="form-buttons remove-button" (click)="removeSection(item)" mat-fab mat-raised-button color="warn"><i class="far fa-trash-alt"></i></button>
+    </div>
   </div>
   <br>
   <div class="row">
