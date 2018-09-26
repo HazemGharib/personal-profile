@@ -28,6 +28,13 @@ mongoose.connect(
 
 /* Schema Configuration */
 var ProfileSchema = new mongoose.Schema({
+    profileImage: String,
+    profileHeadName: String,
+    profileCurrentTitle: String,
+    profileHeadLine: String,
+    nationality: String,
+    currentLocation: String,
+    dateOfBirth: Date,
     profileSections:[{
         sectionName: String,
         sectionContent: String

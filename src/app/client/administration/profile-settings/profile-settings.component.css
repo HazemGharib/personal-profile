@@ -1,4 +1,4 @@
-.profile-entry, .add-section mat-form-field{
+.profile-entry, .add-section mat-form-field, .profile-image mat-form-field{
     width: 80%;
 }
 

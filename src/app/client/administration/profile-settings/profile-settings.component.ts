@@ -39,7 +39,7 @@ export class ProfileSettingsComponent implements OnInit {
   }
 
   addSection() {
-    if (this.sectionName.length > 0) {
+    if (this.sectionName === '') {
       this.profile.profileSections.push({ sectionName: this.sectionName, sectionContent: '' });
       this.sectionName = '';
       this.valueChange.emit(this.profile);

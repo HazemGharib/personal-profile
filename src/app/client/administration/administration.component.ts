@@ -29,7 +29,7 @@ export class AdministrationComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder, private oktaAuth: OktaAuthService) { }
 
-   ngOnInit() {
+  ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required]
     });
@@ -67,6 +67,7 @@ export class AdministrationComponent implements OnInit {
     if (typeof(this.experience) !== 'undefined') { console.log(this.experience); }
     if (typeof(this.skills) !== 'undefined') { console.log(this.skills); }
   }
+
   getUpdatesSummary($event) {
     if ($event.selectedIndex === 4) {
       this.updatesSummary = [];

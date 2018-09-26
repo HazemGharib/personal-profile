@@ -2,10 +2,15 @@
 <div *ngIf="dataReady">
   <div class="row">
     <h5>Profile Image</h5>
-    <input type="file" class="form-control-file">
+    <div class="profile-image">
+      <mat-form-field>
+        <input matInput placeholder="Profile Image Link" type="text" (change)="onProfileSettingChange()" [(ngModel)]="profile.profileImage"/>
+      </mat-form-field>
+    </div>
   </div>
   <br>
   <div class="row">
+    <h5>Profile Sections</h5>
     <div class="add-section">
       <mat-form-field>
         <input matInput placeholder="Section Name" type="text" [(ngModel)]="sectionName"/>
