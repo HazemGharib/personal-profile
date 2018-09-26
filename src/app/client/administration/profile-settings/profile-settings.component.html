@@ -23,22 +23,22 @@
   <div class="row">
       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
         <mat-form-field class="profile-entry">
-          <input matInput [(ngModel)]="profile.dateOfBirth" [matDatepicker]="dob" placeholder="Date of birth" disabled>
+          <input matInput (dateChange)="onProfileSettingChange()" [(ngModel)]="profile.dateOfBirth" [matDatepicker]="dob" placeholder="Date of birth" disabled>
           <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
           <mat-datepicker #dob disabled="false"></mat-datepicker>
         </mat-form-field>
       </div>  
       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
         <mat-form-field class="profile-entry">
-          <mat-select [(value)]="profile.nationality" placeholder="Nationality">
+          <mat-select [(value)]="profile.nationality" (selectionChange)="onProfileSettingChange()" placeholder="Nationality">
             <mat-option *ngFor="let country of countriesList" [value]="country.nationality">{{country?.nationality}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>  
       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
         <mat-form-field class="profile-entry">
-          <mat-select [(value)]="profile.nationality" placeholder="Current Location">
-            <mat-option *ngFor="let country of countriesList" [value]="country.nationality">{{country?.name}}</mat-option>
+          <mat-select [(value)]="profile.currentLocation" (selectionChange)="onProfileSettingChange()" placeholder="Current Location">
+            <mat-option *ngFor="let country of countriesList" [value]="country.name">{{country?.name}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>

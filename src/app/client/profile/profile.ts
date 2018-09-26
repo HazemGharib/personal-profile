@@ -4,6 +4,7 @@ export interface Profile {
     profileCurrentTitle: string;
     profileHeadLine: string;
     nationality: string;
+    currentLocation: string;
     dateOfBirth: Date;
     profileSections: [
         {

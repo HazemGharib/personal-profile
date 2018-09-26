@@ -53,4 +53,7 @@ export class ProfileSettingsComponent implements OnInit {
     }
   }
 
+  onProfileSettingChange() {
+    this.valueChange.emit(this.profile);
+  }
 }
