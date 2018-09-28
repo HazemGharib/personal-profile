@@ -1,4 +1,5 @@
 export interface Experience {
+    _id: string;
     workExperience: WorkExperienceEntry [];
     trainingExperience: TrainingExperienceEntry [];
 }

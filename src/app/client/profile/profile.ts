@@ -1,4 +1,5 @@
 export interface Profile {
+    _id: string;
     profileImage: string;
     profileHeadName: string;
     profileCurrentTitle: string;

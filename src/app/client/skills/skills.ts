@@ -1,4 +1,5 @@
 export interface Skills {
+    _id: string;
     technicalSkills: TechnicalSkillEntry [];
     nonTechnicalSkills: NonTechnicalSkillEntry [];
     languageSkills: LanguageSkillEntry[];
