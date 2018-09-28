@@ -35,5 +35,5 @@
 </div>
 <div mat-dialog-actions>
   <button *ngIf="!data[1].isUpdating" mat-button (click)="onNoClick()">No Thanks</button>
-  <button *ngIf="!data[1].isUpdating" mat-button [mat-dialog-close]="data[0]" cdkFocusInitial>Ok</button>
+  <button mat-button [mat-dialog-close]="data[0]" cdkFocusInitial>Ok</button>
 </div>

@@ -19,7 +19,7 @@
     </div>
     <div class="profile-section" *ngFor="let item of profile.profileSections">
       <mat-form-field class="profile-entry">
-        <textarea matInput rows="4" placeholder="{{item.sectionName}}" value="{{item.sectionContent}}"></textarea>
+        <textarea matInput rows="4" placeholder="{{item.sectionName}}" [(ngModel)]="item.sectionContent" (change)="onProfileSettingChange()"></textarea>
       </mat-form-field>
       <button class="form-buttons remove-button" (click)="removeSection(item)" mat-fab mat-raised-button color="warn"><i class="far fa-trash-alt"></i></button>
     </div>
