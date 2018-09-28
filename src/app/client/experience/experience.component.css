@@ -16,7 +16,7 @@ mat-card.experience-card.mat-card.training-card{
     height: fit-content;
 }
 
-.col-xs-4.col-sm-4.col-md-4.col-lg-4 {
+.col-sm-6.col-md-4.col-lg-4 {
     margin-bottom: 20px;
 }
 

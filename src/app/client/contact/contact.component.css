@@ -8,7 +8,7 @@ i.fab{
 }
 
 mat-card-actions a{
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 mat-card-content img{
@@ -26,4 +26,18 @@ mat-card-content a {
 mat-spinner{
     margin: auto;
     display: block;
+}
+
+@media screen and (max-width: 768px) {
+    mat-card-content div p{
+        overflow-wrap: break-word;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    mat-card-content img{
+        width: 50%;
+        display: block;
+        margin: auto;
+    }
 }

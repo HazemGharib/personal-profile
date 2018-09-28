@@ -1,10 +1,14 @@
 <mat-spinner *ngIf="!dataReady"></mat-spinner>
 <div *ngIf="dataReady">
   <div class="page-container">
-    <img 
-    id="profileImage" 
-    src="{{profile.profileImage}}" 
-    alt="{{profile.profileHeadName}}" />
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <img 
+        id="profileImage" 
+        src="{{profile.profileImage}}" 
+        alt="{{profile.profileHeadName}}" />
+      </div>
+    </div>
     <br/>
     <br/>
     <h2 class="profile-heading">{{profile?.profileHeadName}}</h2>

@@ -181,13 +181,6 @@ div.logout:hover {
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
-#profileImage
-{
-    border: 5px #7386d5 solid; 
-    border-radius: 50%; 
-    width: 20%;
-}
-
 #content {
     width: 100%;
     padding: 20px;
