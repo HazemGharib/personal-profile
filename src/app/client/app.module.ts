@@ -42,6 +42,7 @@ import { SkillsService } from './skills/skills.service';
 import { ProfileService } from './profile/profile.service';
 import { ExperienceService } from './experience/experience.service';
 import { ContactService } from './contact/contact.service';
+import { AdministrationService } from './administration/administration.service';
 
 import { AdminGuard } from './admin.guard';
 
@@ -143,6 +144,7 @@ const appRoutes: Routes = [
     ProfileService,
     ExperienceService,
     ContactService,
+    AdministrationService,
     AdminGuard,
   ],
   bootstrap: [AppComponent],

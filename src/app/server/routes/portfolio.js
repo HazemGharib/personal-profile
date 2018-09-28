@@ -45,8 +45,8 @@ var ContactSchema = new mongoose.Schema({
     email: String,
     mobile: String,
     currentAddress: {
-        Line1: String,
-        Line2: String,
+        line1: String,
+        line2: String,
         state: String,
         country: String
     },
@@ -59,6 +59,7 @@ var ExperienceSchema = new mongoose.Schema({
     workExperience: [
         {
             employerName: String,
+            employerLogo: String,
             role: String,
             responsibilities: String,
             isCurrent: Boolean,
@@ -69,6 +70,7 @@ var ExperienceSchema = new mongoose.Schema({
     trainingExperience: [
         {
             organizationName: String,
+            organizationLogo: String,
             field: String,
             startDate: Date,
             endDate: Date,
@@ -148,6 +150,102 @@ router.get('/skills', (req, res, next) => {
         res.send(skillsList);
         next();
     });
+});
+
+router.put('/administration/profile/:Id', (req, res, next) => {
+    if (req.params.Id !== undefined || req.params.Id !== null) {
+        profileModel.findOneAndUpdate(
+            { _id: req.params.Id },
+            req.body,
+            {new: true, upsert: true}
+        ).then((data)=>{
+            res.statusCode = 200;
+            res.send(data);
+            next();
+        },(err)=>{
+            console.log(err);
+            res.statusCode = 500;
+            res.send();
+            next();
+        });
+    }
+    else{
+        res.statusCode = 500;
+        res.send("Id not found");
+        next();
+    }
+});
+
+router.put('/administration/contact/:Id', (req, res, next) => {
+    if (req.params.Id !== undefined || req.params.Id !== null) {
+        contactModel.findOneAndUpdate(
+            { _id: req.params.Id },
+            req.body,
+            {new: true, upsert: true}
+        ).then((data)=>{
+            res.statusCode = 200;
+            res.send(data);
+            next();
+        },(err)=>{
+            console.log(err);
+            res.statusCode = 500;
+            res.send();
+            next();
+        });
+    }
+    else{
+        res.statusCode = 500;
+        res.send("Id not found");
+        next();
+    }
+});
+
+router.put('/administration/experience/:Id', (req, res, next) => {
+    if (req.params.Id !== undefined || req.params.Id !== null) {
+        experienceModel.findOneAndUpdate(
+            { _id: req.params.Id },
+            req.body,
+            {new: true, upsert: true}
+        ).then((data)=>{
+            res.statusCode = 200;
+            res.send(data);
+            next();
+        },(err)=>{
+            console.log(err);
+            res.statusCode = 500;
+            res.send();
+            next();
+        });
+    }
+    else{
+        res.statusCode = 500;
+        res.send("Id not found");
+        next();
+    }
+});
+
+router.put('/administration/skills/:Id', (req, res, next) => {
+    if (req.params.Id !== undefined || req.params.Id !== null) {
+        skillsModel.findOneAndUpdate(
+            { _id: req.params.Id },
+            req.body,
+            {new: true, upsert: true}
+        ).then((data)=>{
+            res.statusCode = 200;
+            res.send(data);
+            next();
+        },(err)=>{
+            console.log(err);
+            res.statusCode = 500;
+            res.send();
+            next();
+        });
+    }
+    else{
+        res.statusCode = 500;
+        res.send("Id not found");
+        next();
+    }
 });
 
 router.get('/config', (req, res, next) => {

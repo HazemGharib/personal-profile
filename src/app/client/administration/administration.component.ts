@@ -5,8 +5,9 @@ import { OktaAuthService } from '@okta/okta-angular';
 
 import { Profile } from '../profile/profile';
 import { Contact } from '../contact/contact';
-import { Experience } from './../experience/experience';
+import { Experience } from '../experience/experience';
 import { Skills } from '../skills/skills';
+import { AdministrationService } from './administration.service';
 
 @Component({
   selector: 'app-administration',
@@ -27,7 +28,11 @@ export class AdministrationComponent implements OnInit {
 
   updatesSummary: any[];
 
-  constructor(private _formBuilder: FormBuilder, private oktaAuth: OktaAuthService) { }
+  constructor(
+    private _formBuilder: FormBuilder,
+    private oktaAuth: OktaAuthService,
+    private administrationService: AdministrationService
+  ) { }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -62,10 +67,30 @@ export class AdministrationComponent implements OnInit {
 
   saveChanges() {
     console.log('Data Saved');
-    if (typeof(this.profile) !== 'undefined') { console.log(this.profile); }
-    if (typeof(this.contact) !== 'undefined') { console.log(this.contact); }
-    if (typeof(this.experience) !== 'undefined') { console.log(this.experience); }
-    if (typeof(this.skills) !== 'undefined') { console.log(this.skills); }
+    if (typeof(this.profile) !== 'undefined') {
+      this.administrationService.setProfile(this.profile._id, this.profile).subscribe((result) => {
+        // TODO: Toaster message
+        alert('Profile updated !!');
+      });
+    }
+    if (typeof(this.contact) !== 'undefined') {
+      this.administrationService.setContact(this.contact._id, this.contact).subscribe((result) => {
+        // TODO: Toaster message
+        alert('Contact updated !!');
+      });
+    }
+    if (typeof(this.experience) !== 'undefined') {
+      this.administrationService.setExperience(this.experience._id, this.experience).subscribe((result) => {
+        // TODO: Toaster message
+        alert('Experience updated !!');
+      });
+    }
+    if (typeof(this.skills) !== 'undefined') {
+      this.administrationService.setSkills(this.skills._id, this.skills).subscribe((result) => {
+        // TODO: Toaster message
+        alert('Skills updated !!');
+      });
+    }
   }
 
   getUpdatesSummary($event) {
