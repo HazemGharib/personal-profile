@@ -2,14 +2,14 @@
 <div *ngIf="dataReady">
   <div class="row">
     
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-sm-6 col-md-6 col-lg-6">
       <mat-form-field class="contact-entry">
         <input matInput placeholder="Email" type="text" [(ngModel)]="contact.email" (change)="onContactChange()" required>
         <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage('email')}}</mat-error> -->
       </mat-form-field>
     </div>
     
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="col-sm-6 col-md-6 col-lg-6">
       <mat-form-field class="contact-entry">
         <input matInput placeholder="Phone Number" type="text" [(ngModel)]="contact.mobile" (change)="onContactChange()" required>
         <!-- <mat-error *ngIf="phoneNumber.invalid">{{getErrorMessage('phoneNumber')}}</mat-error> -->
@@ -37,14 +37,14 @@
 
     <div class="row">
 
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <div class="col-sm-6 col-md-6 col-lg-6">
         <mat-form-field class="contact-entry">
           <input matInput placeholder="Line 1" type="text" [(ngModel)]="contact.currentAddress.line1" (change)="onContactChange()">
           <!-- <mat-error *ngIf="line1.invalid">{{getErrorMessage('line1')}}</mat-error> -->
         </mat-form-field>
       </div>
 
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <div class="col-sm-6 col-md-6 col-lg-6">
         <mat-form-field class="contact-entry">
           <input matInput placeholder="Line 2" type="text" [(ngModel)]="contact.currentAddress.line2" (change)="onContactChange()">
           <!-- <mat-error *ngIf="line2.invalid">{{getErrorMessage('line2')}}</mat-error> -->
@@ -54,21 +54,21 @@
     </div>    
   </div>
   <br>
-  <div class="">
+  <div>
     <mat-form-field class="contact-entry">
       <input matInput placeholder="LinkidIn profile" type="text" [(ngModel)]="contact.linkedinAccount" (change)="onContactChange()" required>
       <!-- <mat-error *ngIf="linkedinProfile.invalid">{{getErrorMessage('linkedinProfile')}}</mat-error> -->
     </mat-form-field>
   </div>
   <br>
-  <div class="">
+  <div>
     <mat-form-field class="contact-entry">
       <input matInput placeholder="GitHub Profile" type="text" [(ngModel)]="contact.githubAccount" (change)="onContactChange()" required>
       <!-- <mat-error *ngIf="githubProfile.invalid">{{getErrorMessage('githubProfile')}}</mat-error> -->
     </mat-form-field>
   </div>
   <br>
-  <div class="">
+  <div>
     <mat-form-field class="contact-entry">
       <input matInput placeholder="Facebook Profile" [(ngModel)]="contact.facebookAccount" (change)="onContactChange()" type="text" required>
       <!-- <mat-error *ngIf="facebookProfile.invalid">{{getErrorMessage('facebookProfile')}}</mat-error> -->

@@ -7,7 +7,7 @@
     <mat-spinner *ngIf="!dataReady"></mat-spinner>
     <div *ngIf="dataReady" >
         <div class="empty-list" *ngIf="experience.workExperience.length == 0">Nothing Left</div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" *ngFor="let item of experience?.workExperience">
+        <div class="col-sm-4 col-md-4 col-lg-4" *ngFor="let item of experience?.workExperience">
             <mat-card class="experience-card">
                 <mat-card-header>
                     <mat-card-title>
@@ -43,12 +43,12 @@
     <h5>Training Experience</h5>
 
     <div class="row">
-        <button class="button-icon add-button" mat-fab color="primary" (click)="openTrainingExperienceDialog(null)"><i class="fas fa-plus"></i></button>
+        <button class="button-icon add-button" mat-fab color="accent" (click)="openTrainingExperienceDialog(null)"><i class="fas fa-plus"></i></button>
     </div>
     <mat-spinner *ngIf="!dataReady"></mat-spinner>
     <div *ngIf="dataReady">
         <div class="empty-list" *ngIf="experience.trainingExperience.length == 0">Nothing Left</div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" *ngFor="let item of experience?.trainingExperience">
+        <div class="col-sm-4 col-md-4 col-lg-4" *ngFor="let item of experience?.trainingExperience">
             <mat-card class="experience-card">
                 <mat-card-header>
                     <mat-card-title>

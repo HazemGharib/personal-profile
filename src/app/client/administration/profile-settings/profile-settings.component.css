@@ -24,3 +24,9 @@ mat-spinner{
 .add-section{
     margin-bottom: 45px;
 }
+
+@media screen and (max-width: 425px) {
+    .profile-entry{
+        width: 75%;
+    }
+}

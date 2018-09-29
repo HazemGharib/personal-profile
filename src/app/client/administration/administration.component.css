@@ -11,3 +11,18 @@
 .form-button-group{
     margin-top: 15px;
 }
+
+@media screen and (max-width: 425px) {
+    button.save-button{
+        font-size: 20px;
+    }
+    
+    .button-icon{
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+}

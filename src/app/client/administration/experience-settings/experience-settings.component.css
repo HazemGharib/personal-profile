@@ -13,7 +13,7 @@ i.fas, i.far{
     position: relative;
 }
 
-div div.col-xs-4.col-sm-4.col-md-4.col-lg-4 {
+div div.col-sm-4.col-md-4.col-lg-4 {
     margin-bottom: 20px;
 }
 
@@ -36,4 +36,22 @@ h5{
 mat-spinner{
     margin: auto;
     display: block;
+}
+
+@media screen and (max-width: 425px) {
+    mat-card-header h4 {
+        font-size: 14px;
+    }
+
+    mat-card-header i {
+        font-size: 12px;
+    }
+
+    mat-card-content p {
+        font-size: 10px;
+    }
+
+    .add-button{
+        left: 75%;
+    }
 }

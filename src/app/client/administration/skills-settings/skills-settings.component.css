@@ -14,3 +14,12 @@ mat-spinner{
     margin: auto;
     display: block;
 }
+
+
+@media screen and (max-width: 425px) {
+    .skill-chip mat-chip{
+        padding: 3px 5px 3px 8px;
+        margin-bottom: 5px;
+        font-size: 9px;
+    }
+}

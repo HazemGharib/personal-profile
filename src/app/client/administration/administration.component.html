@@ -1,66 +1,66 @@
 <h2>Administration</h2>
-<button class="save-button" mat-raised-button color="primary" (click)="saveChanges()"><i class="button-icon far fa-save"></i>Save Profile</button>
+<button class="save-button" mat-raised-button color="primary" (click)="saveChanges()"><i class="button-icon far fa-save"></i><span class="hidden-xs">Save Profile</span></button>
 <div class="line"></div>
 
 <div class="row">
   <mat-horizontal-stepper (selectionChange)="getUpdatesSummary($event)" #stepper>
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Profile</ng-template>
+        <ng-template matStepLabel><span class="hidden-xs">Profile</span></ng-template>
         
         <app-profile-settings (valueChange)="onProfileChange($event)"></app-profile-settings>
         
         <div class="form-button-group">
-          <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i>Next</button>
+          <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i><span class="hidden-xs">Next</span></button>
         </div>
       </form>
     </mat-step>
     
     <mat-step [stepControl]="secondFormGroup">
       <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Contact</ng-template>
+        <ng-template matStepLabel><span class="hidden-xs">Contact</span></ng-template>
       
         <app-contact-settings (valueChange)="onContactChange($event)"></app-contact-settings>
         
         <div class="form-button-group">
-          <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>
-          <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i>Next</button>
+          <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i><span class="hidden-xs">Back</span></button>
+          <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i><span class="hidden-xs">Next</span></button>
         </div>
       </form>
     </mat-step>
     
     <mat-step [stepControl]="thirdFormGroup">
       <form [formGroup]="thirdFormGroup">
-        <ng-template matStepLabel>Previous Experience</ng-template>
+        <ng-template matStepLabel><span class="hidden-xs">Previous Experience</span></ng-template>
 
         <app-experience-settings (valueChange)="onExperienceChange($event)"></app-experience-settings>
 
         <div class="form-button-group">
-          <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>
-          <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i>Next</button>
+          <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i><span class="hidden-xs">Back</span></button>
+          <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i><span class="hidden-xs">Next</span></button>
         </div>
       </form>
     </mat-step>
 
     <mat-step [stepControl]="fourthFormGroup">
       <form [formGroup]="fourthFormGroup">
-        <ng-template matStepLabel>Skills</ng-template>
+        <ng-template matStepLabel><span class="hidden-xs">Skills</span></ng-template>
         
         <app-skills-settings (valueChange)="onSkillsChange($event)"></app-skills-settings>
 
         <div class="form-button-group">
-          <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>
-          <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i>Next</button>
+          <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i><span class="hidden-xs">Back</span></button>
+          <button class="form-buttons" mat-raised-button matStepperNext color="primary"><i class="button-icon fas fa-chevron-circle-right"></i><span class="hidden-xs">Next</span></button>
         </div>
       </form>
     </mat-step>
     
     <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
+      <ng-template matStepLabel><span class="hidden-xs">Done</span></ng-template>
       You are now done.
       <div class="form-button-group">
-        <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i>Back</button>
-        <button class="form-buttons" mat-raised-button color="warn" (click)="stepper.reset()"><i class="button-icon fas fa-redo-alt"></i>Reset</button>
+        <button class="form-buttons" mat-raised-button matStepperPrevious color="primary"><i class="button-icon fas fa-chevron-circle-left"></i><span class="hidden-xs">Back</span></button>
+        <button class="form-buttons" mat-raised-button color="warn" (click)="stepper.reset()"><i class="button-icon fas fa-redo-alt"></i><span class="hidden-xs">Reset</span></button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>
