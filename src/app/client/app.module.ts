@@ -47,6 +47,7 @@ import { AdministrationService } from './administration/administration.service';
 import { AdminGuard } from './admin.guard';
 
 import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
+import { ToastrModule } from 'ngx-toastr';
 
 const oktaConfig = {
   issuer: `https://dev-317930.oktapreview.com/oauth2/default`,
@@ -119,6 +120,7 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     OktaAuthModule.initAuth(oktaConfig),
+    ToastrModule.forRoot(),
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatChipsModule,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { OktaAuthService } from '@okta/okta-angular';
+import { ToastrService } from 'ngx-toastr';
 
 import { Profile } from '../profile/profile';
 import { Contact } from '../contact/contact';
@@ -31,6 +32,7 @@ export class AdministrationComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private oktaAuth: OktaAuthService,
+    private tostr: ToastrService,
     private administrationService: AdministrationService
   ) { }
 
@@ -69,26 +71,38 @@ export class AdministrationComponent implements OnInit {
     console.log('Data Saved');
     if (typeof(this.profile) !== 'undefined') {
       this.administrationService.setProfile(this.profile._id, this.profile).subscribe((result) => {
-        // TODO: Toaster message
-        alert('Profile updated !!');
+
+        this.tostr.success('Profile updated !!', 'Success', {
+          timeOut: 3000,
+          progressBar: true,
+        });
       });
     }
     if (typeof(this.contact) !== 'undefined') {
       this.administrationService.setContact(this.contact._id, this.contact).subscribe((result) => {
-        // TODO: Toaster message
-        alert('Contact updated !!');
+
+        this.tostr.success('Contact updated !!', 'Success', {
+          timeOut: 3000,
+          progressBar: true,
+        });
       });
     }
     if (typeof(this.experience) !== 'undefined') {
       this.administrationService.setExperience(this.experience._id, this.experience).subscribe((result) => {
-        // TODO: Toaster message
-        alert('Experience updated !!');
+
+        this.tostr.success('Experience updated !!', 'Success', {
+          timeOut: 3000,
+          progressBar: true,
+        });
       });
     }
     if (typeof(this.skills) !== 'undefined') {
       this.administrationService.setSkills(this.skills._id, this.skills).subscribe((result) => {
-        // TODO: Toaster message
-        alert('Skills updated !!');
+
+        this.tostr.success('Skills updated !!', 'Success', {
+          timeOut: 3000,
+          progressBar: true,
+        });
       });
     }
   }
