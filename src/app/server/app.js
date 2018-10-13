@@ -7,7 +7,7 @@ const app = express();
 
 // Third party packages
 const helmet = require('helmet');
-const cJson = require('circular-json');
+//const cJson = require('circular-json');
 const favicon = require('serve-favicon');
 //const history = require('connect-history-api-fallback');
 const cors = require('cors');
@@ -19,6 +19,7 @@ const requestLogger = require('./utils/request-logger');
 
 // Routers
 const portfolio = require('./routes/portfolio');
+const administration = require('./routes/administration');
 
 // Setting view engine [For using different engines than Angular X]
 // app.set('view engine','pug');
@@ -48,6 +49,7 @@ app.use(function (req, res, next) {
 
 /* Application Routes */
 app.use('/api/portfolio', portfolio);
+app.use('/api/portfolio', administration);
 /* Routes End */
 
 /* Path Location Strategy */
