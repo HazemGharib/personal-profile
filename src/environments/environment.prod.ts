@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  baseUri: 'https://hazem-gharib.herokuapp.com',
-  oktaRedirectUri: 'https://hazem-gharib.herokuapp.com/implicit/callback',
+  baseUri: 'http://http://hazem-gharib.net',
+  oktaRedirectUri: 'http://http://hazem-gharib.net/implicit/callback',
 };
