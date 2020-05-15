@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseUri: 'https://hazem-gharib.herokuapp.com',
-  oktaRedirectUri: 'https://hazem-gharib.herokuapp.com/implicit/callback',
+  oktaRedirectUri: 'https://www.hazem-gharib.net/implicit/callback',
 };
 
 /*
