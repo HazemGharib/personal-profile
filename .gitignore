@@ -38,5 +38,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Personal Images
-20994086_10209811703393555_4189187983330973057_n.jpg
+# Local Scripts
+start.sh

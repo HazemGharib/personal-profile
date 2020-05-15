@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUri: 'http://hazem-gharib.net',
-  oktaRedirectUri: 'http://hazem-gharib.net/implicit/callback',
+  baseUri: 'https://hazem-gharib.herokuapp.com',
+  oktaRedirectUri: 'https://hazem-gharib.herokuapp.com/implicit/callback',
 };
 
 /*

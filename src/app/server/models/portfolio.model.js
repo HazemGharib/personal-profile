@@ -10,13 +10,14 @@ mongoose.connect(
             user: process.env.DB_USER,
             password:process.env.DB_PASS
         },
-        useNewUrlParser:true
+        useUnifiedTopology: true,
+        useNewUrlParser: true
     }, 
     function(err, client) {
         if (err) {
             console.log(err);
         }
-        console.log('DB connection session started');
+        console.log(`DB ${process.env.DB_STRING} connection session started`);
     }
 );
 
