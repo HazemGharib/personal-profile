@@ -7,7 +7,6 @@
     "ng": "ng",
     "start": "node src/app/server/app.js",
     "build": "ng build",
-    "test-setup": "",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
