@@ -6,17 +6,18 @@
   "scripts": {
     "ng": "ng",
     "start": "node src/app/server/app.js",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot --configuration production"
+    "postinstall": "ng build --prod --aot --configuration production"
   },
   "keywords": [],
   "author": "Hazem Gharib",
   "license": "ISC",
   "private": true,
   "dependencies": {
+    "@angular-builders/custom-webpack": "~7.4.3",
     "@angular/animations": "^6.1.7",
     "@angular/cdk": "^6.4.7",
     "@angular/cli": "~6.1.5",
@@ -57,7 +58,9 @@
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "brotli-webpack-plugin": "^1.1.0",
     "codelyzer": "~4.2.1",
+    "compression-webpack-plugin": "^4.0.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^5.0.5",
