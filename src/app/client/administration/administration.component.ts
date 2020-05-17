@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { OktaAuthService } from '@okta/okta-angular';
 import { ToastrService } from 'ngx-toastr';
 

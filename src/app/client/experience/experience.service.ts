@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class ExperienceService {
 
   constructor(
-    private http: Http
+    private http: HttpClient
   ) { }
 
   getExperience() {
-    return this.http.get(`${environment.baseUri}/api/portfolio/experience`).pipe(map((res: Response) => res.json()));
+    return this.http.get(`${environment.baseUri}/api/portfolio/experience`).pipe(map((res: any) => res));
   }
 }

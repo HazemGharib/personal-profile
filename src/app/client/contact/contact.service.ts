@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class ContactService {
 
   constructor(
-    private http: Http
+    private http: HttpClient
   ) { }
 
   getContact() {
-    return this.http.get(`${environment.baseUri}/api/portfolio/contact`).pipe(map((res: Response) => res.json()));
+    return this.http.get(`${environment.baseUri}/api/portfolio/contact`).pipe(map((res: any) => res));
   }
 }

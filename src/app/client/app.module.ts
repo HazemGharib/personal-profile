@@ -48,6 +48,7 @@ import { AdminGuard } from './admin.guard';
 
 import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 
 const oktaConfig = {
   issuer: `https://dev-317930.oktapreview.com/oauth2/default`,
@@ -116,7 +117,7 @@ const appRoutes: Routes = [
     TrainingExperienceDialogComponent,
   ],
   imports: [
-    HttpModule,
+    HttpClientModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     OktaAuthModule.initAuth(oktaConfig),

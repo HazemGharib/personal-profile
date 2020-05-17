@@ -1,11 +1,13 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { ExperienceService } from './experience.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ExperienceService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ExperienceService]
+      providers: [ExperienceService],
+      imports: [HttpClientTestingModule]
     });
   });
 

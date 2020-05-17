@@ -1,6 +1,25 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {
+  MatProgressSpinnerModule,
+  MatChipsModule,
+  MatBadgeModule,
+  MatIconModule,
+  MatFormFieldModule,
+  MatButtonModule,
+  MatCardModule,
+  MatInputModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatSelectModule,
+  MatStepperModule,
+  MatDialogModule,
+  MatSlideToggleModule,
+  MatCheckboxModule,
+ } from '@angular/material';
 import { ProfileSettingsComponent } from './profile-settings.component';
+import { ProfileService } from '../../profile/profile.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule } from '@angular/forms';
 
 describe('ProfileSettingsComponent', () => {
   let component: ProfileSettingsComponent;
@@ -8,7 +27,29 @@ describe('ProfileSettingsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfileSettingsComponent ]
+      declarations: [ ProfileSettingsComponent ],
+      imports: [
+        FormsModule,
+        HttpClientTestingModule,
+        MatProgressSpinnerModule,
+        MatCheckboxModule,
+        MatChipsModule,
+        MatBadgeModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        MatCardModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSelectModule,
+        MatStepperModule,
+        MatDialogModule,
+        MatSlideToggleModule,
+      ],
+      providers: [
+        ProfileService
+      ]
     })
     .compileComponents();
   }));
