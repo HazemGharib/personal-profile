@@ -16,9 +16,9 @@
     <p class="profile-subtitle">{{profile?.nationality}} - {{profile?.dateOfBirth | date: 'dd/MM/yyyy'}}</p>
     <p class="profile-subtitle" *ngIf="profile.profileHeadLine.length > 0">{{profile?.profileHeadLine}}</p>
     <div *ngFor="let item of profile.profileSections">
-      <hr class="hr-text" title={{item.sectionName}}>
+      <hr *ngIf="item.sectionName != ''" class="hr-text" title={{item.sectionName}}>
       <div class="profile-section">
-        <p [innerHTML]="item?.sectionContent"></p>
+        <p [innerHTML]="item?.sectionContent | safeHtml"></p>
       </div>
     </div>
   </div>

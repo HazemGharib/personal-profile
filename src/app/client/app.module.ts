@@ -46,6 +46,8 @@ import { AdministrationService } from './administration/administration.service';
 
 import { AdminGuard } from './admin.guard';
 
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+
 import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
@@ -102,6 +104,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
+    SafeHtmlPipe,
     AppComponent,
     ProfileComponent,
     ExperienceComponent,
