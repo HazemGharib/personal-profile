@@ -3,13 +3,13 @@
 }
 
 mat-card-content img{
-    width: 60%;
+    width: 70%;
     display: block;
     margin: auto auto;
 }
 
 mat-card.experience-card.mat-card.work-card{
-    height: fit-content;
+    height: 100%;
 }
 
 mat-card.experience-card.mat-card.training-card{
@@ -26,10 +26,35 @@ mat-card.experience-card.mat-card.training-card{
 
 mat-card-content p {
     font-size: 13px;
-    margin-top: 15%;
+    margin-top: 10%;
 }
 
 mat-spinner{
     margin: auto;
     display: block;
 }
+
+.work-experience-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1em 1em;
+    grid-template-areas: "Area-0 Area-1 Area-2" "Area-3 Area-4 Area-5";
+}
+
+.work-experience-container div {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.Area-0 { grid-area: Area-0; }
+
+.Area-1 { grid-area: Area-1; }
+
+.Area-2 { grid-area: Area-2; }
+
+.Area-3 { grid-area: Area-3; }
+
+.Area-4 { grid-area: Area-4; }
+
+.Area-5 { grid-area: Area-5; }

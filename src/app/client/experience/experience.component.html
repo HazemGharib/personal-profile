@@ -8,29 +8,31 @@
                 <div>Work Experience</div>
             </b>
         </p>
-        <div class="col-sm-6 col-md-4 col-lg-4" *ngFor="let item of experience?.workExperience">
-            <mat-card class="experience-card work-card">
-                <mat-card-header>
-                    <mat-card-title>
-                        <h4><strong>{{item?.employerName}}</strong></h4>
-                    </mat-card-title>
-                    <mat-card-subtitle><i>{{item?.role}}</i></mat-card-subtitle>
-                </mat-card-header>
-                
-                <mat-card-content>
-                    <div>
-                        <img mat-card-image [src]="item.employerLogo">
-                    </div>
-                    <p>
-                        <strong>Responsibilities</strong>
-                        <br>
-                        <span [innerHTML]="item?.responsibilities"></span>
-                        <br>
-                        <br>
-                        <span>{{item?.startDate | date: 'dd/MM/yyyy'}}</span> - <span *ngIf="!item?.isCurrent">{{item?.endDate | date: 'dd/MM/yyyy'}}</span><span *ngIf="item?.isCurrent">Present</span>
-                    </p>
-                </mat-card-content>
-            </mat-card>            
+        <div class="work-experience-container">
+            <div class="col-sm-6 col-md-4 col-lg-4 Area-{{i}}" *ngFor="let item of experience?.workExperience; let i = index">
+                <mat-card class="experience-card work-card">
+                    <mat-card-header>
+                        <mat-card-title>
+                            <h4><strong>{{item?.employerName}}</strong></h4>
+                        </mat-card-title>
+                        <mat-card-subtitle><i>{{item?.role}}</i></mat-card-subtitle>
+                    </mat-card-header>
+
+                    <mat-card-content>
+                        <div>
+                            <img mat-card-image [src]="item.employerLogo">
+                        </div>
+                        <p>
+                            <strong>Responsibilities</strong>
+                            <br>
+                            <span [innerHTML]="item?.responsibilities"></span>
+                            <br>
+                            <br>
+                            <span>{{item?.startDate | date: 'dd/MM/yyyy'}}</span> - <span *ngIf="!item?.isCurrent">{{item?.endDate | date: 'dd/MM/yyyy'}}</span><span *ngIf="item?.isCurrent">Present</span>
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
         </div>
     </div>
 
