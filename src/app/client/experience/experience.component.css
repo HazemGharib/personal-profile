@@ -39,11 +39,45 @@ mat-spinner{
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 1em 1em;
-    grid-template-areas: "Area-0 Area-1 Area-2" "Area-3 Area-4 Area-5";
+    grid-template-areas: 
+        "Area-0 Area-1 Area-2" 
+        "Area-3 Area-4 Area-5";
+}
+
+@media screen and (max-width: 768px) {
+    .work-experience-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1em 1em;
+        grid-template-areas: 
+            "Area-0 Area-1"
+            "Area-2 Area-3"
+            "Area-4 Area-5";
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .work-experience-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1em 1em;
+        grid-template-areas: 
+            "Area-0 Area-0 Area-0"
+            "Area-1 Area-1 Area-1"
+            "Area-2 Area-2 Area-2"
+            "Area-3 Area-3 Area-3"
+            "Area-4 Area-4 Area-4"
+            "Area-5 Area-5 Area-5";
+    }
 }
 
 .work-experience-container div {
-    width: fit-content;
+    width: auto;
+}
+
+.mat-card-content div {
     margin: 0 auto;
 }
 
