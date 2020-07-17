@@ -2,9 +2,15 @@
 // Express
 const express = require('express');
 const router = express.Router();
+const BoxSDK = require('box-node-sdk');
 
 // Third party packages
 const config = require('config');
+const sdk = new BoxSDK({
+    clientID: process.env.BOX_CLIENT_ID,
+    clientSecret: process.env.BOX_CLIENT_SECRET,
+});
+const client = sdk.getBasicClient(process.env.BOX_DEVELOPER_TOKEN);
 
 // Models
 const portfolioModels = require('../models/portfolio.model');
@@ -81,6 +87,14 @@ router.get('/config', (req, res, next) => {
     console.log(configJSON);
     res.statusCode = 200;
     res.send(configJSON);
+    next();
+});
+
+router.get('/download', async (req, res, next) => {    
+    const url = await client.files.getDownloadURL(process.env.BOX_RESUME_FILE_ID);
+
+    res.statusCode = 200;
+    res.send({url});
     next();
 });
 /* Routes End */

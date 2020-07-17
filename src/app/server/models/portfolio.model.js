@@ -39,6 +39,7 @@ var ProfileSchema = new mongoose.Schema({
 var ContactSchema = new mongoose.Schema({
     email: String,
     mobile: String,
+    resume: String,
     currentAddress: {
         line1: String,
         line2: String,

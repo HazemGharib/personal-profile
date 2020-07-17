@@ -2,6 +2,7 @@ export interface Contact {
     _id: string;
     email: string;
     mobile: string;
+    resume: string;
     currentAddress: Address;
     linkedinAccount: string;
     githubAccount: string;

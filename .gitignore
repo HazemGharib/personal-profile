@@ -39,4 +39,4 @@ testem.log
 Thumbs.db
 
 # Local Scripts
-start.sh
+init.sh

@@ -13,4 +13,8 @@ export class ContactService {
   getContact() {
     return this.http.get(`${environment.baseUri}/api/portfolio/contact`).pipe(map((res: any) => res));
   }
+
+  getResumeUrl() {
+    return this.http.get(`${environment.baseUri}/api/portfolio/download`).pipe(map((res: any) => res));
+  }
 }
