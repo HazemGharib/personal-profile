@@ -18,9 +18,6 @@ export class ContactComponent implements OnInit {
   constructor(private contactService: ContactService, private profileService: ProfileService) { }
 
   ngOnInit() {
-    this.contactService.getResumeUrl().subscribe(url => {
-      this.contact.resume = url;
-    });
     this.contactService.getContact().subscribe(contact => {
       this.contact = contact;
 
@@ -41,6 +38,11 @@ export class ContactComponent implements OnInit {
 
         this.dataReady = true;
       }
+
+      // TODO: Fix expiring developer token for Box API
+      this.contactService.getResumeUrl().subscribe(url => {
+        this.contact.resume = url;
+      });
     });
   }
 

@@ -31,9 +31,7 @@ router.get(['/','/profile'], (req, res, next) => {
         if(err) console.log(err);
         if(data) profileDetails = data[0];
         
-        res.statusCode = 200;
-        res.send(profileDetails);
-        next();
+        res.status(200).send(profileDetails);
     });
 });
 
@@ -44,9 +42,7 @@ router.get('/contact', (req, res, next) => {
         if(err) console.log(err);
         if(data) contatDetails = data[0];
         
-        res.statusCode = 200;
-        res.send(contatDetails);
-        next();
+        res.status(200).send(contatDetails);
     });
 });
 
@@ -57,9 +53,7 @@ router.get('/experience', (req, res, next) => {
         if(err) console.log(err);
         if(data) experienceDetails = data[0];
 
-        res.statusCode = 200;
-        res.send(experienceDetails);
-        next();
+        res.status(200).send(experienceDetails);
     });
 });
 
@@ -71,9 +65,7 @@ router.get('/skills', (req, res, next) => {
         if(err) console.log(err);
         if(data) skillsList = data[0];
         
-        res.statusCode = 200;
-        res.send(skillsList);
-        next();
+        res.status(200).send(skillsList);
     });
 });
 
@@ -85,17 +77,16 @@ router.get('/config', (req, res, next) => {
 
     console.log(`Server Config:`);
     console.log(configJSON);
-    res.statusCode = 200;
-    res.send(configJSON);
-    next();
+    res.status(200).send(configJSON);
 });
 
 router.get('/download', async (req, res, next) => {    
-    const url = await client.files.getDownloadURL(process.env.BOX_RESUME_FILE_ID);
+    // const url = await client.files.getDownloadURL(process.env.BOX_RESUME_FILE_ID);
+    
+    // HOTFIX: Hardcoding the url until fixing expiring developer token for Box API
+    const url = process.env.RESUME_URL;
 
-    res.statusCode = 200;
-    res.send({url});
-    next();
+    res.status(200).send({url});
 });
 /* Routes End */
 
