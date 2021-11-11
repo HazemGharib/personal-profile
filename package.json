@@ -45,7 +45,7 @@
     "joi": "^13.6.0",
     "mongoose": "^5.9.14",
     "ngx-toastr": "^9.1.0",
-    "pug": "^2.0.3",
+    "pug": "^3.0.0",
     "rxjs": "^6.0.0",
     "serialize-javascript": "^3.0.0",
     "serve-favicon": "^2.5.0",
